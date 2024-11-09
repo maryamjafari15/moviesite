@@ -1,0 +1,34 @@
+.container { 
+  display: flex; 
+  justify-content: start;
+  flex-direction: column;
+  z-index: 9999;
+  padding: 70px;
+  width: 35%;
+  padding-top: 50vh;
+  
+  
+}
+
+
+
+.title{
+    font-size: 45px;
+    color: var(--text-white);
+
+}
+
+.text{
+    font-size: 16px;
+    color: var(--text-white);
+    text-align: justify;
+    text-justify: inter-word;
+    
+}
+.btnContainer{
+  padding-top: 30px;
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+
+}

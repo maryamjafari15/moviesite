@@ -1,0 +1,30 @@
+:root {
+  --background-dark: #0d1b2a;
+  --nav-dark: #1b263b;
+  --card-blue: #415a77;
+  --title-blue: #778da9;
+  --button-light: #e0e1dd;
+  --text-white: #f8f9fa;
+  --blue-logo: #416eb8;
+}
+
+body {
+ 
+  scrollbar-width: thin;
+  scrollbar-color: #1b263b #0d1b2a; 
+  font-family: "Lato", "Roboto", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-size: 16px;
+  overflow-x: hidden;
+  min-width: 320px;
+  color: var(--text-white);
+  scroll-behavior: smooth;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}

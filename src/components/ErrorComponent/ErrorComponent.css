@@ -1,0 +1,12 @@
+.error p{
+    z-index: 6666;
+    text-align: center;
+    color: #77251c;
+    padding: 20px;
+    font-size: 18PX;
+   position: absolute;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  
