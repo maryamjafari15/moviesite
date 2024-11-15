@@ -1,6 +1,9 @@
 
+
 export function MovieDetails(){
+
+   
     return(
-        <div>helloo</div>
+        <div>hjjjj</div>
     )
 }

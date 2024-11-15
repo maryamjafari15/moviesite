@@ -73,7 +73,7 @@ export function UpcomingMovie() {
           <div  key={movies.id}>
             <div
             style={{
-                backgroundImage : `url(https://image.tmdb.org/t/p/w500${movies.poster_path})`,}} className="popcard">
+                backgroundImage : `url(https://image.tmdb.org/t/p/w500${movies.poster_path})`,cursor:"pointer"}} className="popcard">
 
             <h3 className="hpopmovie">{movies.title}</h3>
            </div>

@@ -1,3 +1,4 @@
+
 :root {
   --background-dark: #0d1b2a;
   --nav-dark: #1b263b;
@@ -6,14 +7,13 @@
   --button-light: #e0e1dd;
   --text-white: #f8f9fa;
   --blue-logo: #416eb8;
+  
 }
 
 body {
- 
   scrollbar-width: thin;
-  scrollbar-color: #1b263b #0d1b2a; 
+  scrollbar-color: #1b263b #0d1b2a;
   font-family: "Lato", "Roboto", Arial, Helvetica, sans-serif;
-  margin: 0;
   padding: 0;
   background-color: #000;
   font-size: 16px;
@@ -21,10 +21,14 @@ body {
   min-width: 320px;
   color: var(--text-white);
   scroll-behavior: smooth;
+  max-width: 3000px;
+  margin: auto;
 }
 
 *,
 ::after,
 ::before {
   box-sizing: border-box;
+  scrollbar-width: 15px;
+  scrollbar-color: #1b263b #2a3a4d;
 }

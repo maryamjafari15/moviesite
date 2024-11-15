@@ -5,6 +5,8 @@
     overflow: hidden;
     transition: 0.5s;
 margin-bottom: 100px;
+max-width: 3000px;
+margin: 0 auto;
 }
 
 .overlayStyle{

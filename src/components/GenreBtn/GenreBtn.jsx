@@ -5,7 +5,7 @@ import "./GenreBtn.css";
 
 export function GenreBtn(){
 
-   const Genres=["Drama" , "Action" ,"Comedy" , "Horror" , "Other" ] ;
+   const Genres=["Drama" , "Action" ,"Sci-Fi" , "Horror" , "Animation", "Other" ] ;
 
     return(
  <div className='containergenres'>
@@ -18,7 +18,7 @@ export function GenreBtn(){
         sx={{
            color:"primary.main",
            borderRadius:"25px",
-           width:"200px",
+           width:"150px",
            transition:"0.5s",
              '&:hover': {   
                backgroundColor:"primary.main",

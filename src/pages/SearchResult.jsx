@@ -6,7 +6,7 @@ export function SearchResult(){
     const location = useLocation();
     const movies = location.state?.movies || [];
     return(
-        <div style={{marginTop:"80px"}}>
+        <div className='mt-20'>
            <Nav/> 
           SearchResult
           <div className="movies">

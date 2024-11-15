@@ -1,77 +1,73 @@
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(13, 27, 42, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999999;
-    width: 100%;
-    height: 80px;
-    box-shadow: 0 0 5px var(--background-dark);
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(13, 27, 42, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  width: 100%;
+  height: 80px;
+  box-shadow: 0 0 5px var(--background-dark);
+  max-width: 3000px;
+  margin:auto;
 }
-.search-box{
-position: relative;
-display: flex;
-padding-right: 40px;
+.search-box {
+  position: relative;
+  display: flex;
+  padding-right: 40px;
 }
-.logo{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
 }
-.logoheader{
-    width: 130px;  
-    padding: 5px;
-    padding-left: 60px;
+.logoheader {
+  width: 130px;
+  padding: 5px;
+  padding-left: 60px;
 }
-.logoh1{
-    font-size: 26px;
-    color: var(--blue-logo);
-    cursor: pointer;
+.logoh1 {
+  font-size: 26px;
+  color: var(--blue-logo);
+  cursor: pointer;
 }
-.menu{
-    display: none;
+.menu {
+  display: none;
 }
-.list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-    
-
-}
-
-.listitem::after{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--text-white);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-    top:25px;
-   
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
 }
 
-.listitem:hover::after{
-    transform: scaleX(1);
-    
+.listitem::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-white);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  top: 25px;
 }
-.list>li>a{
-    color: var(--text-white);
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 500;
-    position: relative;
 
+.listitem:hover::after {
+  transform: scaleX(1);
 }
-.list>li{
-    list-style: none;
-    
-    
+.list > li > a {
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+}
+.list > li {
+  list-style: none;
 }

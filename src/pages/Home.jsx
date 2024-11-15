@@ -6,21 +6,19 @@ import { Footer } from "../components/Footer/Footer.jsx";
 import { TrendingMovie } from "../components/Trendingmovie/TrendingMovie.jsx";
 import { LatestTrailerMovie } from "../components/LatestTrailers/LatestTrailers.jsx";
 import{UpcomingMovie } from "../components/UpcomingMovie/UpcomingMovie.jsx";
+import { PopularPeople } from "../components/people/People.jsx";
+
 export function Home() {
+
+ 
   return (
     <>
       <Nav />
       <Background />
 
       <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          textAlign: "center",
-          maxWidth: "2000px",
-          padding: "10px",
-          margin: "auto",
-        }}
+      className=" flex justify-center text-center max-w-10xl p-2.5 m-auto"
+        
       >
         <DiscoverMovie />
         <TrendingMovie />
@@ -28,6 +26,7 @@ export function Home() {
       <PopularMovie />
       <LatestTrailerMovie />
       <UpcomingMovie />
+      <PopularPeople/>
       <Footer />
     </>
   );

@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Slider from "react-slick";
-import { LatestTrailerMovieRequest } from "../../data/main";
+import { getVideoTrailer } from "../../data/video.js";
 import { Error } from "../ErrorComponent/ErrorComponent";
 import "./LatestTrailers.css";
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 export function LatestTrailerMovie() {
   const [Data, setData] = useState([]);
@@ -14,7 +15,7 @@ export function LatestTrailerMovie() {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 7,
+    slidesToShow: 3,
     slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
@@ -45,13 +46,30 @@ export function LatestTrailerMovie() {
     ],
   };
 
+  const movieIds = [912649, 385687, 505642, 678512];
+
   useEffect(() => {
     async function getdata() {
       setloading(true);
-      setHasError(false);
+      setHasError(false);     
       try {
-        const popmovies = await LatestTrailerMovieRequest();
-        setData(popmovies);
+        const moviesData = await Promise.all(
+          movieIds.map(
+            async( id)=>{
+              const movieData = await getVideoTrailer(id);
+              const trailer = movieData.videos.results.find(
+                (video) => video.site === "YouTube" && video.name === "Official Trailer");
+                return {
+                  id: movieData.id,
+              title: movieData.title,
+              backdrop_path: movieData.backdrop_path,
+              youtubeUrl: trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null,
+                };
+              }
+              )
+            
+          );
+          setData(moviesData);
       } catch {
         setHasError(true);
       } finally {
@@ -64,15 +82,32 @@ export function LatestTrailerMovie() {
   return (
     <>
       <h1 className='hmainpopmovie'>Latest Trailers </h1>
-      <div className='slider-container2'>
+      <div className='slider-container3'>
         {loading ? <div> loading...</div> : null}
         {error ? <Error /> : null}
         <Slider {...settings}>
-          {Data?.map((movies) => (
-            <div key={movies.id}>
-             
+          {Data?.map((movie) => (
+            <div  key={movie.id}>
+            <div 
+            
+            style={{backgroundImage:`url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`}} className="trailercard"
+            >
+              {movie.youtubeUrl ? (
+                    <a
+                      href={movie.youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="trailer-link"
+                    >
+                    < PlayCircleIcon
+                    sx={{ fontSize: 60 }}/>
+                    </a>
+                  ) : (
+                    <p>No Trailer Available</p>
+                  )}
 
-              <h3 className='hpopmovie'>{movies.title}</h3>
+              <h3 className='hpopmovie'>{movie.title}</h3>
+            </div>
             </div>
           ))}
         </Slider>

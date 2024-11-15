@@ -1,0 +1,26 @@
+.containerPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.page-item {
+border: 1px solid var(--blue-logo);
+padding: 10px 15px;
+background-color: var(--nav-dark);
+list-style: none;
+border-radius: 15px;
+cursor: pointer;
+
+}
+.page-link {
+    text-decoration: none;
+    color: #fff;
+    font-family: inherit;
+    font-weight: 600;
+}

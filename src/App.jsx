@@ -7,6 +7,8 @@ import { TvShows} from "./pages/TvShows";
 import { Movies} from "./pages/movies.jsx" ;
 import {SearchResult} from "./pages/SearchResult.jsx" ;
 import {MovieDetails} from "./pages/MovieDetails.jsx" ;
+import { PeopleDetails } from "./pages/PeopleDetails.jsx";
+import{PageNotFound} from "./components/PageNotFound/PageNotFound.jsx"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 
@@ -15,17 +17,18 @@ function App() {
     {
       path: "/",
       element: <Home/>,
+      errorElement:<PageNotFound/>, 
     },
     {
-      path: "/movies",
+      path: "/Movies",
       element: <Movies/>,
     },
     {
-      path: "/tvshows",
+      path: "/TvShows",
       element: <TvShows/>,
     },
     {
-      path: "/news",
+      path: "/News",
       element: <News/>,
     },
     {
@@ -33,8 +36,12 @@ function App() {
       element: <SearchResult/>,
     },
     {
-      path: "/MovieDetails",
+      path: "/MovieDetails/",
       element: <MovieDetails/>,
+    },
+    {
+      path: "/PeopleDetails",
+      element: <PeopleDetails/>,
     },
   ]);
   return (

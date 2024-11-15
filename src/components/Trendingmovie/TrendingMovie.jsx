@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { TrendingMovieRequest } from "../../data/main";
 import "./TrendingMovie.css";
+import numeral from "numeral";
 
 import { Error } from "../ErrorComponent/ErrorComponent";
 
@@ -39,11 +40,12 @@ export function TrendingMovie() {
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
+                style={{cursor:"pointer"}}
               />
               <div className="trend-info">
                 <span className="title">{movie.title}{movie.name} </span>
                 <span className="year">{movie.release_date}{movie.first_air_date}</span>
-                <span className="rating">{`⭐${movie.vote_average}`}</span>
+                <span className="rating">{`⭐${ numeral(movie.vote_average).format('0,0.0')}`}</span>
               </div>
             </li>
           ))}

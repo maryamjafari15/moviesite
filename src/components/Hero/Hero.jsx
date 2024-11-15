@@ -19,7 +19,7 @@ export function Hero(props) {
             initial={{ y: 100, opacity: 0 }}   
             animate={{ y: 0, opacity: 1 }}      
             transition={{ duration: 1.5 , ease: "easeOut" }} 
-            className='container'
+            className='container3'
         >
 
       <div>

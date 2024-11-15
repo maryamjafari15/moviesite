@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./background.css";
 import Slider from "react-slick";
-import { DiscoverMovieRequest } from "../../data/main";
+import { DiscoverMovieRequest } from "../../data/genre&movie";
 import { Loading } from "../Loading/Loading";
 import { Error } from "../ErrorComponent/ErrorComponent";
 import { Hero } from "../hero/Hero";
@@ -26,7 +26,8 @@ export function Background() {
       setloading(true);
       setHasError(false);
       try {
-        const movie = await DiscoverMovieRequest();
+        
+        const movie = await DiscoverMovieRequest(1);
         const movies = movie.slice(1, 7);
         setSlidesData(movies);
       } catch {

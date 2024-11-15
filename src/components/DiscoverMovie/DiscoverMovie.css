@@ -14,6 +14,7 @@
     word-spacing: .2cm;
     text-align: start;
     max-width: 30%;
+    margin-bottom: 15px;
   }
 
 .movie-grid {
@@ -46,7 +47,7 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: var(--nav-dark) ;
+    background-color: var(--blue-logo) ;
     padding: 5px 10px;
     color: var(--text-white);
     border-radius: 5px;
@@ -54,18 +55,20 @@
 }
 .tag2{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    bottom: 60px;
+    right: 20px;
     background-color: var(--card-blue) ;
     padding: 5px 10px;
     color: var(--text-white);
     border-radius: 5px;
     font-size: 12px;
+    font-weight: 600;
 }
 .movie-title {
     text-align: center;
     font-size: 15px;
     margin-top: 5px;
+    text-wrap: nowrap;
 }
 .header-container{
     display: flex;

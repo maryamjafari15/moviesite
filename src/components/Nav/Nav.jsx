@@ -14,8 +14,12 @@ export function Nav() {
 
   const handleSearch = async function getdata(e) {
     e.preventDefault();
+    if (!query.trim ()){
+      alert("Please enter a movie , tvshow , person...")
+      return;
+    } else{
     const results = await SearchMovieRequest(query);
-    navigate('/SearchResult', { state: { movies: results } });
+    navigate('/SearchResult', { state: { movies: results } });}
   };
 
   return (

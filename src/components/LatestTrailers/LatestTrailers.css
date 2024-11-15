@@ -1,18 +1,21 @@
-.slider-container2 {
+.slider-container3{
     padding: 40px 13%;
+    background-color: rgba(13, 27, 42, 0.6);
+    margin: 20px 70px;
+    border-radius: 25px;
+    
   }
   
-  .popcard {
+  .trailercard{
     background-repeat: no-repeat;
     background-size: cover;
-    height: 250px;
+    height: 180px;
+    width: 375px;
     padding: 20px;
     margin: 15px;
     opacity: 90%;
     border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   
   }
   .hpopmovie {
     width: 100%;
@@ -27,10 +30,22 @@
   
   .hmainpopmovie{
       text-align: center;
+      font-size: 36px;
+      margin: 50px 0 0 0;
   }
   
-  .slider-container2 .slick-arrow{
-      background-color: var(--background-dark);
-      margin: 0 -60px;
+  .slider-container3 .slick-arrow , .slider-container3 .slick-next{
+      background-color: rgba(156, 165, 173, 0.6);
+     margin:0 -60px;
       
+  }
+  .trailer-link{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 90%;
   }
