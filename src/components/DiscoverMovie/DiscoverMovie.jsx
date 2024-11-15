@@ -12,7 +12,7 @@ export function DiscoverMovie() {
   const [loading, setloading] = useState(true);
   const [error, setHasError] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardPerPage] = useState(20);
+  const [cardPerPage] = useState(16);
   const navigate = useNavigate();
 
   const routeChange = () => {
@@ -48,6 +48,7 @@ export function DiscoverMovie() {
         <h2>Movies</h2>
         <GenreBtn />
       </div>
+      <hr />
       <div className='movie-grid'>
         {loading ? <div> loading... </div> : null}
         {error ? <Error /> : null}

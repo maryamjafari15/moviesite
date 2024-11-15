@@ -1,8 +1,8 @@
 .movies{
     flex: 4;
     margin-right: 20px;
-    margin: 35px 40px;
-    padding: 0px 40px;
+    margin: 200px 40px 150px 40px;
+    padding: 0px 80px;
      color: var(--text-white);
      height: fit-content;
      overflow: hidden;
@@ -19,28 +19,30 @@
 
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    border-top: 2px solid var(--text-white);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    /* border-top: 2px solid var(--text-white); */
     padding: 40px 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin:20px 100px 50px 100px ;
 }
 .movie-card {
-    width: 80%;
+    width: 70%;
     position: relative;
     border-radius: 15px;
     overflow: hidden;
     margin: auto;
     padding-bottom: 20px;
     cursor: pointer;
+    margin-bottom: 60px;
     
 }
 .movie-card img {
     width: 100%;
     border-radius: 10px;
-    opacity: 80%;
+    opacity: 70%;
    
 }
 .tag {

@@ -1,7 +1,7 @@
 import { Nav } from "../components/Nav/Nav.jsx";
 import { DiscoverMovie } from "../components/DiscoverMovie/DiscoverMovie.jsx";
 import { Background } from "../components/Background/Background.jsx";
-import { PopularMovie } from "../components/PopularMovie/PopularMovie.jsx";
+import {TopRatedMovie } from "../components/TopRatedMovie/TopRatedMovie.jsx";
 import { Footer } from "../components/Footer/Footer.jsx";
 import { TrendingMovie } from "../components/Trendingmovie/TrendingMovie.jsx";
 import { LatestTrailerMovie } from "../components/LatestTrailers/LatestTrailers.jsx";
@@ -23,9 +23,9 @@ export function Home() {
         <DiscoverMovie />
         <TrendingMovie />
       </div>
-      <PopularMovie />
+      <UpcomingMovie />  
       <LatestTrailerMovie />
-      <UpcomingMovie />
+      <TopRatedMovie />
       <PopularPeople/>
       <Footer />
     </>

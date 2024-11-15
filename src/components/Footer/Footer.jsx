@@ -4,6 +4,11 @@ import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import footer from "../../assets/footer.png";
 
 export function Footer() {
+
+  function scrollToTop(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
   return (
     <div className='con-footer'>
       <div className='con-footer2'>
@@ -14,7 +19,7 @@ export function Footer() {
         <hr className='hrfooter' />
         <div className='footersection2'>
           <ArrowCircleUpIcon />
-          <a href='/' className='a-footer'>
+          <a href="/" onClick={scrollToTop} className='a-footer'>
             {" "}
             Back to top
           </a>

@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Slider from "react-slick";
-import { PopularMovieRequest } from "../../data/main";
+import {TopRatedRequest } from "../../data/main";
 import { Error } from "../ErrorComponent/ErrorComponent";
-import "./Popularmovie.css";
+import "./TopRatedMovie.css";
 
 
-export function PopularMovie() {
+export function TopRatedMovie() {
   const [popData, setpopData] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setHasError] = useState(false);
@@ -51,7 +51,7 @@ export function PopularMovie() {
       setloading(true);
       setHasError(false);
       try {
-        const popmovies = await PopularMovieRequest();
+        const popmovies = await TopRatedRequest();
         setpopData(popmovies);
       } catch {
         setHasError(true);
@@ -64,7 +64,7 @@ export function PopularMovie() {
 
   return (
     < >
-    <h1 className="hmainpopmovie">Popular Movies  </h1>
+    <h1 className="hmainpopmovie">Top Rated Movies  </h1>
     <div className='slider-container2'>
       {loading ? <div> loading...</div> : null}
       {error ? <Error /> : null}

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Slider from "react-slick";
 import { getVideoTrailer } from "../../data/video.js";
+import {PopularMovieRequest} from "../../data/main.js"
 import { Error } from "../ErrorComponent/ErrorComponent";
 import "./LatestTrailers.css";
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
@@ -46,19 +47,25 @@ export function LatestTrailerMovie() {
     ],
   };
 
-  const movieIds = [912649, 385687, 505642, 678512];
+  
 
   useEffect(() => {
+  
     async function getdata() {
+      const data = await PopularMovieRequest();
+      const movieIds =  data.map((movie) => movie.id);
       setloading(true);
-      setHasError(false);     
+      setHasError(false);        
       try {
         const moviesData = await Promise.all(
           movieIds.map(
             async( id)=>{
               const movieData = await getVideoTrailer(id);
-              const trailer = movieData.videos.results.find(
+              let trailer = movieData.videos.results.find(
                 (video) => video.site === "YouTube" && video.name === "Official Trailer");
+                if (!trailer) {
+                  trailer = movieData.videos.results.find((video) => video.site === "YouTube");
+                }
                 return {
                   id: movieData.id,
               title: movieData.title,

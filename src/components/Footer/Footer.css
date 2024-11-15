@@ -2,14 +2,14 @@
     width: 100%;
     padding: 30px;
     max-width: 3000px;
-margin: 0 auto;
+    margin: 0 auto;
 }
 
 .con-footer2{
     width: 100%;       
     margin: auto;
     background-color:rgba(13, 27, 42 , 0.6);
-    height: 30vh;
+    height:300px;
     border-radius: 15px;
     
 }
@@ -49,7 +49,7 @@ margin: 0 auto;
     opacity: 90%;
 }
 .imgfooter{
-    width: 250px;
+    width: 16rem;
     margin-right: 50px;
     opacity: 60%;
 }

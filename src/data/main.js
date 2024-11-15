@@ -22,7 +22,7 @@ export async function TrendingMovieRequest() {
 
 export async function PopularMovieRequest() {
   const response = await fetch(
-    `${BASE_URL}/movie/popular?language=en-US&page=1`,
+    `${BASE_URL}/movie/popular?language=en-US&page=1&sort_by=popularity.desc`,
     {
       headers: {
         accept: "application/json",
@@ -32,7 +32,7 @@ export async function PopularMovieRequest() {
   );
   const data = await response.json();
 
-  // console.log(data.results);
+  console.log(data.results);
   
   return (data.results);
   
@@ -59,6 +59,24 @@ export async function UpcomingMovieRequest() {
 export async function PopularPeopleRequest() {
   const response = await fetch(
     `${BASE_URL}/person/popular?language=en-US&page=1`,
+    {
+      headers: {
+        accept: "application/json",
+        Authorization: AccessTokenAuth,
+      },
+    }
+  );
+  const data = await response.json();
+
+  // console.log(data.results);
+  
+  return (data.results);
+  
+}
+
+export async function TopRatedRequest() {
+  const response = await fetch(
+    `${BASE_URL}/movie/top_rated?language=en-US&page=1`,
     {
       headers: {
         accept: "application/json",

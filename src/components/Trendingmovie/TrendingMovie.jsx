@@ -16,7 +16,7 @@ export function TrendingMovie() {
       setHasError(false);
       try {
         const movie = await TrendingMovieRequest();  
-        const movies = movie.slice(0, 10);
+        const movies = movie.slice(0, 11);
         setData(movies);
       } catch {
         setHasError(true);
