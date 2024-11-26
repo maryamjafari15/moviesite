@@ -12,7 +12,7 @@ const response = await fetch(`${BASE_URL}/movie/${id}?append_to_response=videos`
 );
 
 const data = await response.json();
-console.log(data);
+// console.log(data);
 return data;
 
 

@@ -10,17 +10,27 @@
   align-items: center;
 }
 .page-item {
-border: 1px solid var(--blue-logo);
-padding: 10px 15px;
-background-color: var(--nav-dark);
+border: 1px solid var(--button-light);
+padding: 10px 0px;
+background-color: var(--card-blue);
 list-style: none;
 border-radius: 15px;
 cursor: pointer;
 
 }
 .page-link {
+  padding:10px 15px;
     text-decoration: none;
     color: #fff;
     font-family: inherit;
     font-weight: 600;
+    width: 100%;
+}
+.disabled{
+  display: none;
+  
+}
+.active{
+ 
+  background-color: var(--background-dark);
 }

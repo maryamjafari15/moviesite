@@ -1,33 +1,33 @@
 import { useState, useEffect } from "react";
-import { getMoviesWithGenres } from "../../data/genre&movie";
+import {  getTvshowsWithGenres } from "../../data/genre&tvshow";
 import { Error } from "../ErrorComponent/ErrorComponent";
-import "./DiscoverMovie.css";
 import { GenreBtn } from "../GenreBtn/GenreBtn";
 import { useNavigate } from "react-router-dom";
 import numeral from "numeral";
 import { Pagination } from "../Pagination/Pagination";
 import { ProgressChart } from "../ProgressChart/ProgressChart";
+export function TvShowPage (){
 
-export function DiscoverMovie() {
   const [data, setData] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setHasError] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [total_pages, setTotal_pages] = useState(1);
-  const [selectedGenre, setSelectedGenre] = useState("");
+ const [total_pages , setTotal_pages] =useState(1);
+ const [selectedGenre, setSelectedGenre] = useState("");
 
   const navigate = useNavigate();
   const routeChange = (movieTitle, movieId) => {
-    let path = `/MovieDetails/${movieTitle}/${movieId}`;
+    let path = `/MovieDetails/${movieTitle}/${movieId}` ;
     navigate(path);
   };
+  
 
   useEffect(() => {
     async function getdata() {
       setloading(true);
       setHasError(false);
       try {
-        const movies = await getMoviesWithGenres(currentPage, selectedGenre);
+        const movies = await  getTvshowsWithGenres(currentPage);
         setData(movies.data);
         setTotal_pages(movies.total_pages);
       } catch {
@@ -38,58 +38,49 @@ export function DiscoverMovie() {
     }
 
     getdata();
-  }, [currentPage, selectedGenre]);
+  }, [currentPage]);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedGenre]);
+
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // console.log("test", currentPage , data)
-  const filteredMovies = selectedGenre
-    ? data.filter((movie) =>
-        movie.genre_ids.some((genre) => genre === Number(selectedGenre))
-      )
-    : data;
-  // console.log("Movie Data:", data);
+// console.log("test", currentPage , data)
+const filteredMovies = selectedGenre
+? data.filter((movie) =>
+    movie.genres.some((genre) => genre === selectedGenre)
+  )
+: data;
 
   return (
     <div className='movies'>
       <div className='header-container'>
-        <h2>Movies</h2>
-        <GenreBtn setSelectedGenre={setSelectedGenre} />
+        <h2>Tv-Shows</h2>
+        <GenreBtn  setSelectedGenre={setSelectedGenre} />
       </div>
       <hr />
       <div className='movie-grid'>
         {loading ? <div> loading... </div> : null}
         {error ? <Error /> : null}
         {filteredMovies?.map((movie) => (
-          <div
-            className='movie-card'
-            key={movie.id}
-            onClick={() => routeChange(movie.title, movie.id)}
-          >
+          <div className='movie-card' key={movie.id} onClick={ () => routeChange(movie.title  , movie.id)}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
             />
             <div className='tag'>{movie.genres.slice(0, 1)}</div>
-            <div
-              className='flex justify-center items-center '
-              style={{ marginTop: "-20px", opacity: "100%" }}
-            >
-              <ProgressChart
-                percentage={(movie.vote_average / 10) * 100}
-                text={numeral(movie.vote_average / 10).format("0 %")}
-              />
+            <div className="flex justify-center items-center "
+            style={{marginTop:"-20px", opacity:"100%"}}>
+            <ProgressChart
+              percentage={(movie.vote_average / 10) * 100} 
+              text={numeral(movie.vote_average / 10).format("0 %")}
+            />
             </div>
             <div className='movie-title'>{movie.title}</div>
           </div>
         ))}
       </div>
       <Pagination
-        currentPage={currentPage}
+      currentPage={currentPage}
         totalPages={total_pages}
         paginate={paginate}
       />

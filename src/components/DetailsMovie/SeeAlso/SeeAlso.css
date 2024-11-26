@@ -1,0 +1,47 @@
+.containerseealso{
+    display: flex;
+    flex-direction: column;  
+    width: 80%;
+    margin: auto;
+    padding-top: 10vh;
+    
+}
+.cardContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 60px;
+
+}
+.containerseealso h1{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+.card2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card2 img{
+    opacity: 80%;
+    border-radius: 15px;
+    width: 90%;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 15px;
+   
+}
+.card2 img:hover{
+    opacity: 100%;
+    border-radius: 15px;
+    width: 95%;
+    margin: auto;
+    cursor: pointer;
+    margin-bottom: 15px;
+   
+}

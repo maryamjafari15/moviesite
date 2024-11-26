@@ -2,13 +2,18 @@ import { useState, useEffect } from "react";
 import { TrendingMovieRequest } from "../../data/main";
 import "./TrendingMovie.css";
 import numeral from "numeral";
-
+import { useNavigate } from "react-router-dom";
 import { Error } from "../ErrorComponent/ErrorComponent";
 
 export function TrendingMovie() {
   const [data, setData] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setHasError] = useState(false);
+
+  const navigate = useNavigate();
+  const routeChange = (movieTitle , movieId) => {
+    let path = `/MovieDetails/${movieTitle}/${movieId}` ;
+    navigate(path);}
 
   useEffect(() => {
     async function getdata() {
@@ -36,11 +41,12 @@ export function TrendingMovie() {
         {loading ? <div> loading... </div>  : null}
        {error ? <Error /> : null}
           {data?.map((movie) => (
-            <li className="trend-item"  key={movie.id}>
+            <li className="trend-item"  key={movie.id} >
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
                 style={{cursor:"pointer"}}
+                onClick={ () => routeChange(movie.title || movie.name, movie.id)}
               />
               <div className="trend-info">
                 <span className="title">{movie.title}{movie.name} </span>

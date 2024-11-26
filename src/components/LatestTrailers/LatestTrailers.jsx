@@ -61,11 +61,16 @@ export function LatestTrailerMovie() {
           movieIds.map(
             async( id)=>{
               const movieData = await getVideoTrailer(id);
+              if (!movieData || !movieData.videos) {
+                return null;
+              }
               let trailer = movieData.videos.results.find(
                 (video) => video.site === "YouTube" && video.name === "Official Trailer");
                 if (!trailer) {
                   trailer = movieData.videos.results.find((video) => video.site === "YouTube");
                 }
+                // console.log(trailer);
+                // console.log(movieData);
                 return {
                   id: movieData.id,
               title: movieData.title,
@@ -85,6 +90,7 @@ export function LatestTrailerMovie() {
     }
     getdata();
   }, []);
+  
 
   return (
     <>
@@ -93,8 +99,8 @@ export function LatestTrailerMovie() {
         {loading ? <div> loading...</div> : null}
         {error ? <Error /> : null}
         <Slider {...settings}>
-          {Data?.map((movie) => (
-            <div  key={movie.id}>
+          {Data?.map((movie , index) => (
+            <div  key={`${movie.id}-${index}`}>
             <div 
             
             style={{backgroundImage:`url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`}} className="trailercard"
@@ -114,6 +120,7 @@ export function LatestTrailerMovie() {
                   )}
 
               <h3 className='hpopmovie'>{movie.title}</h3>
+             
             </div>
             </div>
           ))}

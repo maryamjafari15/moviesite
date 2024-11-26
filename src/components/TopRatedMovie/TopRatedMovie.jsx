@@ -4,12 +4,18 @@ import Slider from "react-slick";
 import {TopRatedRequest } from "../../data/main";
 import { Error } from "../ErrorComponent/ErrorComponent";
 import "./TopRatedMovie.css";
+import { useNavigate } from "react-router-dom";
 
 
 export function TopRatedMovie() {
   const [popData, setpopData] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setHasError] = useState(false);
+
+  const navigate = useNavigate();
+  const routeChange = (movieTitle , movieId) => {
+    let path = `/MovieDetails/${movieTitle}/${movieId}` ;
+    navigate(path);}
 
   const settings = {
     dots: false,
@@ -70,7 +76,7 @@ export function TopRatedMovie() {
       {error ? <Error /> : null}
       <Slider {...settings}>
         {popData?.map((movies) => (
-          <div  key={movies.id}>
+          <div  key={movies.id} onClick={ () => routeChange(movies.title, movies.id)}>
             <div
             style={{
                 backgroundImage : `url(https://image.tmdb.org/t/p/w500${movies.poster_path})`, cursor:"pointer"}} className="popcard">

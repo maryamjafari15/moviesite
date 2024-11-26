@@ -17,3 +17,22 @@ export async function SearchMovieRequest(query) {
     return (data.results);
     
   }
+
+
+export async function SearchTvShowRequest(query) {
+    const response = await fetch(
+      `${BASE_URL}/search/tv?api_key=${API_KEY}&query=${encodeURIComponent(query)}`,
+      {
+        headers: {
+          accept: "application/json",
+          Authorization: AccessTokenAuth,
+        },
+      }
+    );
+    const data = await response.json();
+  
+    // console.log(data.results);
+    
+    return (data.results);
+    
+  }

@@ -1,5 +1,4 @@
 import "./Footer.css";
-
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import footer from "../../assets/footer.png";
 

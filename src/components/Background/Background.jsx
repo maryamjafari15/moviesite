@@ -6,6 +6,8 @@ import { Loading } from "../Loading/Loading";
 import { Error } from "../ErrorComponent/ErrorComponent";
 import { Hero } from "../hero/Hero";
 
+
+
 export function Background() {
   const [slidesData, setSlidesData] = useState([]);
   const [loading, setloading] = useState(true);
@@ -28,7 +30,7 @@ export function Background() {
       try {
         
         const movie = await DiscoverMovieRequest(1);
-        const movies = movie.slice(1, 7);
+        const movies = movie.results.slice(1, 7);
         setSlidesData(movies);
       } catch {
         setHasError(true);
@@ -39,6 +41,8 @@ export function Background() {
 
     getdata();
   }, []);
+
+
   return (
     <div className='header-slider'>
       {loading ? <Loading /> : null}

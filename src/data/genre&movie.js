@@ -1,9 +1,9 @@
 import { AccessTokenAuth , BASE_URL } from "./constants.js";
 
-
-export async function DiscoverMovieRequest(currentPage) {
+export async function DiscoverMovieRequest(currentPage, selectedGenre = "") {
+  const genreQuery = selectedGenre ? `&with_genres=${selectedGenre}` : "";
   const response = await fetch(
-    `${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${currentPage}&sort_by=popularity.desc`,
+    `${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${currentPage}&sort_by=popularity.desc${genreQuery}`,
     {
       headers: {
         accept: "application/json",
@@ -12,12 +12,9 @@ export async function DiscoverMovieRequest(currentPage) {
     }
   );
   const data = await response.json();
-
-  // console.log(data.results);
-  
-  return (data.results);
-  
+  return data;
 }
+
 
 
 export async function GenreMovieRequest() {
@@ -39,19 +36,23 @@ export async function GenreMovieRequest() {
   }
 
 
-  export async function getMoviesWithGenres(currentPage) {
-    const movies = await DiscoverMovieRequest(currentPage);
+  export async function getMoviesWithGenres(currentPage, selectedGenre = "") {
+    const movies = await DiscoverMovieRequest(currentPage, selectedGenre);
     const genres = await GenreMovieRequest();
   
-    const moviesWithGenres = movies.map((movie) => {
-      const movieGenres = movie.genre_ids.map((genreId) => {
-        const genre = genres.find((genre) => genre.id === genreId);
-        return genre ? genre.name : null; 
-      }).filter(Boolean); 
+    const moviesWithGenres = movies.results.map((movie) => {
+      const movieGenres = movie.genre_ids
+        .map((genreId) => {
+          const genre = genres.find((genre) => genre.id === genreId);
+          return genre ? genre.name : null;
+        })
+        .filter(Boolean);
   
       return { ...movie, genres: movieGenres };
     });
   
-    return moviesWithGenres;
+    return {
+      data: moviesWithGenres,
+      total_pages: movies.total_pages,
+    };
   }
-  

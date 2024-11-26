@@ -20,6 +20,11 @@ function App() {
       errorElement:<PageNotFound/>, 
     },
     {
+      path: "/:key",
+      element: <Home/>,
+       
+    },
+    {
       path: "/Movies",
       element: <Movies/>,
     },
@@ -36,11 +41,15 @@ function App() {
       element: <SearchResult/>,
     },
     {
-      path: "/MovieDetails/",
+      path: "/SearchResult/:query",
+      element: <SearchResult/>,
+    },
+    {
+      path: "/MovieDetails/:key/:MovieID",
       element: <MovieDetails/>,
     },
     {
-      path: "/PeopleDetails",
+      path: "/PeopleDetails/:key/:peopleID",
       element: <PeopleDetails/>,
     },
   ]);

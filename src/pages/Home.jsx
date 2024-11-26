@@ -15,10 +15,8 @@ export function Home() {
     <>
       <Nav />
       <Background />
-
       <div
-      className=" flex justify-center text-center max-w-10xl p-2.5 m-auto"
-        
+      className=" flex justify-center text-center max-w-10xl p-2.5 m-auto"        
       >
         <DiscoverMovie />
         <TrendingMovie />

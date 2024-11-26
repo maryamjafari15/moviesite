@@ -22,7 +22,7 @@
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--card-blue);
-    margin: 20px;
+    margin: 15px;
     cursor: pointer; 
   }
   

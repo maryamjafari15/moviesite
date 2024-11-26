@@ -1,7 +1,7 @@
 .movies{
     flex: 4;
     margin-right: 20px;
-    margin: 200px 40px 150px 40px;
+    margin: 120px 40px 150px 40px;
     padding: 0px 80px;
      color: var(--text-white);
      height: fit-content;
@@ -19,7 +19,7 @@
 
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     /* border-top: 2px solid var(--text-white); */
     padding: 40px 10px;
@@ -29,7 +29,7 @@
     margin:20px 100px 50px 100px ;
 }
 .movie-card {
-    width: 70%;
+    width: 80%;
     position: relative;
     border-radius: 15px;
     overflow: hidden;
@@ -40,10 +40,15 @@
     
 }
 .movie-card img {
-    width: 100%;
+    width: 95%;
     border-radius: 10px;
-    opacity: 70%;
+    opacity: 100%;
+    transition: 0.5s;
    
+}
+.movie-card img:hover{
+    opacity: 100%;
+    width: 100%;
 }
 .tag {
     position: absolute;

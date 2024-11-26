@@ -1,17 +1,17 @@
 import "./Hero.css";
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
 import { motion } from "framer-motion";
 import { useNavigate} from "react-router-dom";
+import{LikeButton} from"./LikedButton"
 
 
 
 export function Hero(props) {
-    const{ title , overview}= props.data;
+    const{ title , overview , id}= props.data;
+    
     const navigate = useNavigate();
-
-    const routeChange = () =>{ 
-      let path = "/MovieDetails"; 
+    const routeChange = (movieTitle , movieid) =>{ 
+      let path = `/MovieDetails/${movieTitle}/${movieid}`; 
       navigate(path);
     }
   return (
@@ -28,7 +28,7 @@ export function Hero(props) {
       </div>
       <div className="btnContainer">
       <Fab
-      onClick={routeChange}
+      onClick={()=> routeChange(title , id )}
       sx={{
         borderRadius:"25px"
       }} variant="extended" size="medium" color= "">
@@ -38,7 +38,9 @@ export function Hero(props) {
       <Fab 
      
       size="small" color="primary" aria-label="add">
-        <AddIcon />
+        
+        <LikeButton/>
+
       </Fab>
       </div>
     

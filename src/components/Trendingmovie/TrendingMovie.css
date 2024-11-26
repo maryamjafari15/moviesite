@@ -1,7 +1,7 @@
 .trends {
   flex: 1;
   background-color: rgba(13, 27, 42, 0.6);
-  margin: 200px 50px 150px 40px;
+  margin: 120px 50px 150px 40px;
   padding: 20px 30px;
   border-radius: 15px;
   color: var(--text-white);

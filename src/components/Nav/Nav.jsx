@@ -4,7 +4,7 @@ import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Link } from "react-router-dom";
-import { SearchMovieRequest } from "../../data/search";
+
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
@@ -17,10 +17,10 @@ export function Nav() {
     if (!query.trim ()){
       alert("Please enter a movie , tvshow , person...")
       return;
-    } else{
-    const results = await SearchMovieRequest(query);
-    navigate('/SearchResult', { state: { movies: results } });}
-  };
+    }  if (query.trim()){
+    navigate(`/SearchResult/${encodeURIComponent(query)}`);}
+   
+    }
 
   return (
     <>
@@ -58,7 +58,7 @@ export function Nav() {
             <TextField
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder='Search for a movie'
+              placeholder='Search for a movie, tv show'
               variant='outlined'
               size='small'
               sx={{
@@ -103,3 +103,4 @@ export function Nav() {
     </>
   );
 }
+

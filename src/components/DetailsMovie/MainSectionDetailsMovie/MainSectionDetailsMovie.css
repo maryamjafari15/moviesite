@@ -1,0 +1,68 @@
+.main-container2{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    letter-spacing: 0.5px;
+}
+.infoDetails>h1{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.imageDetailsmoviecontainer{
+    flex: 2;
+}
+.imageDetailsmoviecontainer img{
+   height:60vh ;
+   box-shadow:  0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 254, 254, 0.19) ;
+    border-radius: 15px;
+    
+}
+.infoDetails{
+    flex: 3;
+    padding-top: 30px;
+}
+.castcontainer{
+    display: flex;
+    margin-bottom: 30px;
+}
+.actor-card2 {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    color: white;
+    flex-direction: column;
+    width: 120px;
+
+  }
+  
+  .actor-card2 img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--card-blue);
+    margin: 15px;
+    cursor: pointer; 
+  }
+  
+  .actor-card2>h3 {
+    font-size: 12px;
+   
+  }
+  .infoDetails h2{
+    font-size: 20px;
+    font-weight: 600;
+    
+  }
+  .infoDetails>h3{
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .keywords-text {
+    opacity: 70%;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+  }
