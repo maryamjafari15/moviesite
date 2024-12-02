@@ -35,7 +35,7 @@ export function PopularPeople() {
     <div className='people-con'>    
       {loading ? <div> loading...</div> : null}
       {error ? <Error /> : null}
-      {data?.map((people) => (
+      {data?.filter((people) => people.profile_path).map((people) => (
         <div className="actor-card" key={people.id}>
           <img
           onClick={()=> routeChange(people.name , people.id)}

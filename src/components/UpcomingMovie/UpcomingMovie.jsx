@@ -13,8 +13,10 @@ export function UpcomingMovie() {
   const [error, setHasError] = useState(false);
 
   const navigate = useNavigate();
-  const routeChange = (movieTitle , movieId) => {
-    let path = `/MovieDetails/${movieTitle}/${movieId}` ;
+  const routeChange = (movie, mediaType) => {
+    let path = `/MovieDetails/${mediaType}/${movie.title || movie.name}/${
+      movie.id
+    }}`;
     navigate(path);}
 
   const settings = {
@@ -76,12 +78,14 @@ export function UpcomingMovie() {
       {error ? <Error /> : null}
       <Slider {...settings}>
         {Data?.map((movies) => (
-          <div  key={movies.id} onClick={ () => routeChange(movies.title, movies.id)}>
+          <div  key={movies.id} onClick={() => routeChange(movies, movies.title ? "movie" : "tv")}>
             <div
             style={{
                 backgroundImage : `url(https://image.tmdb.org/t/p/w500${movies.poster_path})`,cursor:"pointer"}} className="popcard">
-
-            <h3 className="hpopmovie">{movies.title}</h3>
+                  <div class="overlay">
+                  <span className="spanmovie">{movies.title}</span>
+                  </div>
+          
            </div>
           </div>
         ))}

@@ -36,16 +36,13 @@ function App() {
       path: "/News",
       element: <News/>,
     },
-    {
-      path: "/SearchResult",
-      element: <SearchResult/>,
-    },
+   
     {
       path: "/SearchResult/:query",
       element: <SearchResult/>,
     },
     {
-      path: "/MovieDetails/:key/:MovieID",
+      path: "/MovieDetails/:mediaType/:key/:id",
       element: <MovieDetails/>,
     },
     {

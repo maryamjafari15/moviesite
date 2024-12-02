@@ -6,7 +6,7 @@ import {SearchComponent} from "../components/SearchComponent/SearchComponent.jsx
 export function SearchResult(){
     
     return(
-        <div className='mt-20'>
+        <div >
            <Nav /> 
          <SearchComponent/>
       <Footer/>

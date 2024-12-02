@@ -18,3 +18,21 @@ export async function DetailMovieRequest(id) {
   return data;
   
 }
+
+export async function DetailTvRequest(id) {
+  const response = await fetch(
+    `${BASE_URL}/tv/${id}?append_to_response=credits,videos,keywords,similar&language=en-US`,
+    {
+      headers: {
+        accept: "application/json",
+        Authorization: AccessTokenAuth,
+      },
+    }
+  );
+  const data = await response.json();
+
+//   console.log(data);
+  
+  return data;
+  
+}

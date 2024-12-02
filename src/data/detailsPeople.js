@@ -1,50 +1,31 @@
+import { AccessTokenAuth, BASE_URL } from "./constants.js";
 
-import { AccessTokenAuth , BASE_URL } from "./constants.js";
+export async function fetchAllDetails(id) {
+  const headers = {
+    accept: "application/json",
+    Authorization: AccessTokenAuth,
+  };
 
-export async function DetailsPeopleRequest (id) {
-    const response = await fetch(
+  try {
+    const [profileResponse, creditsResponse, imagesResponse] = await Promise.all([
+      fetch(`${BASE_URL}/person/${id}?language=en-US`, { headers }),
+      fetch(`${BASE_URL}/person/${id}/combined_credits?language=en-US`, { headers }),
+      fetch(`${BASE_URL}/person/${id}/images`, { headers }),
+    ]);
 
-        `${BASE_URL}/person/${id}?language=en-US`,
-    {
-      headers: {
-        accept: "application/json",
-        Authorization: AccessTokenAuth,
-      },
-    }
-    );
-    const data = await response.json();
+    const [profile, credits, images] = await Promise.all([
+      profileResponse.json(),
+      creditsResponse.json(),
+      imagesResponse.json(),
+    ]);
 
-    return data;
-}
-
-export async function DetailsPeopleMovieRequest (id) {
-    const response = await fetch(
-
-        `${BASE_URL}/person/${id}/combined_credits?language=en-US`,
-    {
-      headers: {
-        accept: "application/json",
-        Authorization: AccessTokenAuth,
-      },
-    }
-    );
-    const data = await response.json();
-
-    return data.cast;
-}
-
-export async function DetailsPeopleImagesRequest (id) {
-    const response = await fetch(
-
-        `${BASE_URL}/person/${id}/images`,
-    {
-      headers: {
-        accept: "application/json",
-        Authorization: AccessTokenAuth,
-      },
-    }
-    );
-    const data = await response.json();
-
-    return data.profiles;
+    return {
+      profile,
+      movies: credits.cast,
+      images: images.profiles,
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
 }

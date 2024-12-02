@@ -5,7 +5,7 @@ import numeral from "numeral";
 export function BackgrondDetailsMovie(props) {
   const result = props.data;
 const result2 =props.url;
-
+const result3= props.type;
 
   return (
     <>
@@ -21,15 +21,15 @@ const result2 =props.url;
 
       </div>
       <div className='section1-md'>
-        <h1> {result.title} </h1>
-        <h2>{result.release_date}</h2>
+        <h1> {result.title|| result.name ||"Unknown"} </h1>
+        <h2> {result3 === "movie" ?  result.release_date :  result.first_air_date || "Unknown"}</h2>
         <div className='rating-part'>
           <span>{`⭐${ numeral(result.vote_average).format('0,0.0')}`}</span>
           <p>
           {result.overview}
           </p>
           <button onClick={()=>window.open( result2, "_blank")   
-          }>Watch Trailer</button>
+          } disabled={!result2}>Watch Trailer</button>
         </div>
       </div>
       <div

@@ -24,6 +24,12 @@
     border: 2px solid var(--card-blue);
     margin: 15px;
     cursor: pointer; 
+    transition: 0.5s;
+    opacity: 80%;
+  }
+  .actor-card img:hover{
+    border: 2px solid white;
+    opacity: 100%;
   }
   
   .actor-card h3 {

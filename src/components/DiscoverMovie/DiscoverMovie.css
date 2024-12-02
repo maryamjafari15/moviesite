@@ -37,18 +37,19 @@
     padding-bottom: 20px;
     cursor: pointer;
     margin-bottom: 60px;
+    transition: 0.5s;
     
 }
 .movie-card img {
     width: 95%;
     border-radius: 10px;
     opacity: 100%;
-    transition: 0.5s;
+  
    
 }
-.movie-card img:hover{
+.movie-card:hover{
     opacity: 100%;
-    width: 100%;
+    transform: translateY(-10px);
 }
 .tag {
     position: absolute;

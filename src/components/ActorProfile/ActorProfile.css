@@ -34,31 +34,42 @@
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 254, 254, 0.19);
 }
+.sec1-people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+ width: 80%;
+ margin: auto;
+ margin-top: -250px;
+}
 .titlepeople {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 3;
+  width: 40%;
   align-items: start;
   z-index: 9999;
+  flex-wrap: wrap;
+  padding-left: 60px;
+}
+.imgpeople2{
+  flex: 1;
 }
 .titlepeople h1 {
+  
   font-size: 80px;
   font-weight: 600;
+  text-wrap: wrap;
 }
 .titlepeople p {
   font-size: 20px;
   font-weight: 400;
 }
-.sec1-people {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -250px;
-  z-index: 9999;
-  gap: 30%;
-}
+
 .imageofstar2 {
-  width: 120px;
+  width: 150px;
   border-radius: 15px;
   opacity: 90%;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
@@ -85,7 +96,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  padding:0 20px;
+ 
 
 }
 .sec1-people2-1 h2{
@@ -121,4 +132,42 @@
   background-color: var(--background-dark);
   margin: 0 -60px;
   
+}
+.no-data-message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff7f7;
+  margin-top: 20px;
+}
+.popcard4{
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 255px;
+  padding: 20px;
+  margin: 15px;
+  opacity: 90%;
+  width: 170px;
+  border-radius: 15px;
+  background-position: "center";
+  
+  position: relative;
+}
+.popcard4:hover .overlay{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popcard4:hover .spanmovie{
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .popcard4 {
+    width: 120px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popcard4 {
+    width: 100px;
+    height: 150px;
+  }
 }

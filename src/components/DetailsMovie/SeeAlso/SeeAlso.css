@@ -38,10 +38,6 @@
 }
 .card2 img:hover{
     opacity: 100%;
-    border-radius: 15px;
-    width: 95%;
-    margin: auto;
-    cursor: pointer;
-    margin-bottom: 15px;
+    transform: translateY(-10px);
    
 }

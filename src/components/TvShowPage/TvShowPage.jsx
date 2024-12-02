@@ -15,11 +15,13 @@ export function TvShowPage (){
  const [total_pages , setTotal_pages] =useState(1);
  const [selectedGenre, setSelectedGenre] = useState("");
 
-  const navigate = useNavigate();
-  const routeChange = (movieTitle, movieId) => {
-    let path = `/MovieDetails/${movieTitle}/${movieId}` ;
-    navigate(path);
-  };
+ const navigate = useNavigate();
+ const routeChange = (movie, mediaType) => {
+   let path = `/MovieDetails/${mediaType}/${movie.title || movie.name}/${
+     movie.id
+   }}`;
+   navigate(path);
+ };
   
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const filteredMovies = selectedGenre
         {loading ? <div> loading... </div> : null}
         {error ? <Error /> : null}
         {filteredMovies?.map((movie) => (
-          <div className='movie-card' key={movie.id} onClick={ () => routeChange(movie.title  , movie.id)}>
+          <div className='movie-card' key={movie.id} onClick={ () => routeChange(movie, movie.title ? "movie" : "tv")}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}

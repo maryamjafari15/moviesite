@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import { getMoviesWithGenres } from "../../data/genre&movie";
+import { getMoviesWithGenresAndCategory } from "../../data/MovieCategory";
 import { Error } from "../ErrorComponent/ErrorComponent";
+import { MovieBtn } from "../MovieBtn/MovieBtn";
 import { GenreBtn } from "../GenreBtn/GenreBtn";
 import { useNavigate } from "react-router-dom";
 import numeral from "numeral";
 import { Pagination } from "../Pagination/Pagination";
 import { ProgressChart } from "../ProgressChart/ProgressChart";
+
+
 export function MoviePage (){
 
   const [data, setData] = useState([]);
@@ -14,12 +17,15 @@ export function MoviePage (){
   const [currentPage, setCurrentPage] = useState(1);
  const [total_pages , setTotal_pages] =useState(1);
  const [selectedGenre, setSelectedGenre] = useState("");
+ const [category, setCategory] = useState("popular")
 
-  const navigate = useNavigate();
-  const routeChange = (movieTitle, movieId) => {
-    let path = `/MovieDetails/${movieTitle}/${movieId}` ;
-    navigate(path);
-  };
+ const navigate = useNavigate();
+ const routeChange = (movie, mediaType) => {
+   let path = `/MovieDetails/${mediaType}/${movie.title || movie.name}/${
+     movie.id
+   }}`;
+   navigate(path);
+ };
   
 
   useEffect(() => {
@@ -27,7 +33,7 @@ export function MoviePage (){
       setloading(true);
       setHasError(false);
       try {
-        const movies = await getMoviesWithGenres(currentPage);
+        const movies = await getMoviesWithGenresAndCategory(currentPage, selectedGenre, category);
         setData(movies.data);
         setTotal_pages(movies.total_pages);
       } catch {
@@ -38,31 +44,35 @@ export function MoviePage (){
     }
 
     getdata();
-  }, [currentPage]);
+  }, [currentPage, selectedGenre, category]);
 
+  console.log("Selected Genre Changed:", category);
 
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-// console.log("test", currentPage , data)
-const filteredMovies = selectedGenre
-? data.filter((movie) =>
-    movie.genres.some((genre) => genre === selectedGenre)
-  )
-: data;
+console.log("test", currentPage , data)
+
+// const filteredMovies = selectedGenre
+//     ? data.filter((movie) =>
+//         movie.genre_ids.some((genre) => genre === Number(selectedGenre))
+//       )
+//     : data;
 
   return (
     <div className='movies'>
       <div className='header-container'>
         <h2>Movies</h2>
-        <GenreBtn  setSelectedGenre={setSelectedGenre} />
+        <MovieBtn setCategory={setCategory} />
+        
       </div>
+      <GenreBtn setSelectedGenre={setSelectedGenre} />
       <hr />
       <div className='movie-grid'>
         {loading ? <div> loading... </div> : null}
         {error ? <Error /> : null}
-        {filteredMovies?.map((movie) => (
-          <div className='movie-card' key={movie.id} onClick={ () => routeChange(movie.title  , movie.id)}>
+        {data?.map((movie) => (
+          <div className='movie-card' key={movie.id} onClick={() => routeChange(movie, movie.title ? "movie" : "tv")}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}

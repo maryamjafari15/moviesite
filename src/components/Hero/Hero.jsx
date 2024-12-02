@@ -10,10 +10,11 @@ export function Hero(props) {
     const{ title , overview , id}= props.data;
     
     const navigate = useNavigate();
-    const routeChange = (movieTitle , movieid) =>{ 
-      let path = `/MovieDetails/${movieTitle}/${movieid}`; 
-      navigate(path);
-    }
+  const routeChange = (mediaType ,title  , id) => {
+    let path = `/MovieDetails/${mediaType}/${title}/${id}}`;
+    navigate(path);
+  };
+
   return (
     <motion.div
             initial={{ y: 100, opacity: 0 }}   
@@ -28,7 +29,7 @@ export function Hero(props) {
       </div>
       <div className="btnContainer">
       <Fab
-      onClick={()=> routeChange(title , id )}
+      onClick={() => routeChange("movie" , title , id)}
       sx={{
         borderRadius:"25px"
       }} variant="extended" size="medium" color= "">

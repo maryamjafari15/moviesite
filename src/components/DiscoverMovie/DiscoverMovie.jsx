@@ -17,11 +17,12 @@ export function DiscoverMovie() {
   const [selectedGenre, setSelectedGenre] = useState("");
 
   const navigate = useNavigate();
-  const routeChange = (movieTitle, movieId) => {
-    let path = `/MovieDetails/${movieTitle}/${movieId}`;
+  const routeChange = (movie, mediaType) => {
+    let path = `/MovieDetails/${mediaType}/${movie.title || movie.name}/${
+      movie.id
+    }}`;
     navigate(path);
   };
-
   useEffect(() => {
     async function getdata() {
       setloading(true);
@@ -46,7 +47,7 @@ export function DiscoverMovie() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // console.log("test", currentPage , data)
+  console.log("test", currentPage , data)
   const filteredMovies = selectedGenre
     ? data.filter((movie) =>
         movie.genre_ids.some((genre) => genre === Number(selectedGenre))
@@ -68,7 +69,7 @@ export function DiscoverMovie() {
           <div
             className='movie-card'
             key={movie.id}
-            onClick={() => routeChange(movie.title, movie.id)}
+            onClick={() => routeChange(movie, movie.title ? "movie" : "tv")}
           >
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

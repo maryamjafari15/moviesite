@@ -3,9 +3,9 @@ const BASE_URL = 'https://newsapi.org/v2/everything';
 
 export async function NewsMovie() {
   try {
-    const query = 'movie OR series';
+    const query = '"movie" OR "cinema" OR "film" OR "Hollywood" OR "TV series"';
     const response = await fetch(
-      `${BASE_URL}?q=${encodeURIComponent(query)}&sortBy=popularity&apiKey=${API_KEY}`
+      `${BASE_URL}?q=${encodeURIComponent(query)}&sortBy=publishedAt&language=en&apiKey=${API_KEY}`
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

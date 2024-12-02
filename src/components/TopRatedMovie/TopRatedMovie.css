@@ -14,17 +14,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
-.hpopmovie {
+.spanmovie{
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  
+}
+.popcard:hover .overlay{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popcard:hover .spanmovie{
+  opacity: 1;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0); 
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  visibility: hidden;
+  transition: background-color 0.3s ease; 
 }
+
 
 .hmainpopmovie{
     text-align: center;

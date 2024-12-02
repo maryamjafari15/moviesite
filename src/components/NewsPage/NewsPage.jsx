@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { NewsMovie } from "../../data/news";
-import newsimg from "../../assets/newsimg.png"
-import "./NewsPage.css"
+import newsimg from "../../assets/newsimg.png";
+import "./NewsPage.css";
+import { Error } from "../ErrorComponent/ErrorComponent";
 
 export function NewsPage() {
   const [news, setNews] = useState([]);
@@ -25,36 +26,64 @@ export function NewsPage() {
   }, []);
 
   return (
-    <> 
-    <div className='head-search2'>
-    <img src={newsimg} alt='movie' className='movieimg' />
-    <div>
-      <h1>Hi!</h1>
-      <h3>
-      Catch the latest movie news here!🎥
-        <br />
-        The latest in cinema, just for you!🍿
-      </h3>
-    </div>
-  </div>
-    <div className='card2-grid'>
-      {loading ? <div> loading...</div> : null}
-      {error ? <Error /> : null}
-      {news.slice(82,100).map((news) => (
-        <div className='card2' key={news.id}>
-          <img src={news.urlToImage } alt='Card2 image' className='card-image' />
-          <div className='card2-content'>
-            <div className='card2-date'> </div>
-            <div className='card2-author'></div>
-            <h3 className='card2-title'></h3>
-            <p className='card2-description'></p>
-            <a href='#' className='card2-link'>
-              READ MORE
-            </a>
-          </div>
+    <>
+      <div className='head-search2'>
+        <img src={newsimg} alt='movie' className='movieimg2' />
+        <div>
+          <h1>Hi!</h1>
+          <h3>
+            Catch the latest movie news here!🎥
+            <br />
+            The latest in cinema, just for you!🍿
+          </h3>
         </div>
-      ))}
-    </div>
+      </div>
+      <div className='section2-newspage'>
+        <h1 className='newsh1'>News</h1>
+        <hr />
+        <div className='card3-grid'>
+          {loading ? <div> loading...</div> : null}
+          {error ? <Error /> : null}
+          {news
+            .filter(
+              (item) => item.urlToImage && !item.urlToImage.endsWith(".webp")
+            )
+            .slice(0, 30)
+            .map((news) => (
+              <div className='card3' key={news.id}>
+                <img
+                  src={
+                    news.urlToImage
+                      ? news.urlToImage
+                      : "https://via.placeholder.com/300"
+                  }
+                  alt='news'
+                  className='card3-image'
+                />
+                <div className='card3-content'>
+                  <div className='card3-date'>
+                    {news.publishedAt
+                      ? new Date(news.publishedAt).toLocaleDateString()
+                      : "Unknown date"}{" "}
+                  </div>
+                  <div className='card3-author'>
+                    {news.author || "Unknown Author"}
+                  </div>
+                  <h3 className='card3-title'>{news.title || "No title"}</h3>
+
+                  <a
+                    href={news.url || "#"}
+                    className='card3-link'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    READ MORE...
+                  </a>
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
     </>
   );
 }

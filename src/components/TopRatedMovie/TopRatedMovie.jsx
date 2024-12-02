@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Slider from "react-slick";
-import {TopRatedRequest } from "../../data/main";
+import { TopRatedRequest } from "../../data/main";
 import { Error } from "../ErrorComponent/ErrorComponent";
 import "./TopRatedMovie.css";
 import { useNavigate } from "react-router-dom";
-
 
 export function TopRatedMovie() {
   const [popData, setpopData] = useState([]);
@@ -13,10 +12,12 @@ export function TopRatedMovie() {
   const [error, setHasError] = useState(false);
 
   const navigate = useNavigate();
-  const routeChange = (movieTitle , movieId) => {
-    let path = `/MovieDetails/${movieTitle}/${movieId}` ;
-    navigate(path);}
-
+  const routeChange = (movie, mediaType) => {
+    let path = `/MovieDetails/${mediaType}/${movie.title || movie.name}/${
+      movie.id
+    }}`;
+    navigate(path);
+  };
   const settings = {
     dots: false,
     infinite: false,
@@ -69,24 +70,32 @@ export function TopRatedMovie() {
   }, []);
 
   return (
-    < >
-    <h1 className="hmainpopmovie">Top Rated Movies  </h1>
-    <div className='slider-container2'>
-      {loading ? <div> loading...</div> : null}
-      {error ? <Error /> : null}
-      <Slider {...settings}>
-        {popData?.map((movies) => (
-          <div  key={movies.id} onClick={ () => routeChange(movies.title, movies.id)}>
+    <>
+      <h1 className='hmainpopmovie'>Top Rated Movies </h1>
+      <div className='slider-container2'>
+        {loading ? <div> loading...</div> : null}
+        {error ? <Error /> : null}
+        <Slider {...settings}>
+          {popData?.map((movies) => (
             <div
-            style={{
-                backgroundImage : `url(https://image.tmdb.org/t/p/w500${movies.poster_path})`, cursor:"pointer"}} className="popcard">
-
-            <h3 className="hpopmovie">{movies.title}</h3>
-           </div>
-          </div>
-        ))}
-      </Slider>
-    </div>
+              key={movies.id}
+              onClick={() => routeChange(movies, movies.title ? "movie" : "tv")}
+            >
+              <div
+                style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/w500${movies.poster_path})`,
+                  cursor: "pointer",
+                }}
+                className='popcard'
+              >
+                <div class='overlay'>
+                  <span className='spanmovie'>{movies.title}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
     </>
   );
 }

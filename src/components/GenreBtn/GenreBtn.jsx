@@ -1,45 +1,54 @@
 import Button from "@mui/material/Button";
 import "./GenreBtn.css";
-
+import { useState } from "react";
 
 export function GenreBtn({  setSelectedGenre }) {
+
+  const [activeGenre, setActiveGenre] = useState("");
 
   const Genres = [
     {
       "id": 18,
-      "name": "Drama"
+      "name": "Drama",
+      
     },
       {
         "id": 28,
-        "name": "Action"
+        "name": "Action",
+       
       },
      
       {
         "id": 16,
-        "name": "Animation"
+        "name": "Animation",
+        
       },
       {
         "id": 35,
-        "name": "Comedy"
+        "name": "Comedy",
+       
       },
     
   
       {
         "id": 27,
-        "name": "Horror"
+        "name": "Horror",
+       
       },
 
     ]
  
-  
+    const handleButtonClick = (id) => {
+      setActiveGenre(id);
+      setSelectedGenre(id);
+    };
 
   return (
     <div className='containergenres'>
       {Genres?.map((genre) => (
         <Button
-          onClick={() => {
-            setSelectedGenre(genre.id);
-          }}
+        className={activeGenre === genre.id ? "active" : undefined}
+          onClick={() => handleButtonClick(genre.id)}
           key={genre.id}
           variant='outlined'
           sx={{
@@ -57,7 +66,8 @@ export function GenreBtn({  setSelectedGenre }) {
         </Button>
       ))}
       <Button
-          onClick={() => setSelectedGenre("")}
+      className={activeGenre === "" ? "active" : undefined}
+          onClick={() => handleButtonClick("")}
           variant="outlined"
           sx={{
             color: "primary.main",
@@ -69,6 +79,7 @@ export function GenreBtn({  setSelectedGenre }) {
               backgroundColor: "primary.main",
               color: "primary.contrastText",
             },
+            
           }}
         >
           All
@@ -77,3 +88,4 @@ export function GenreBtn({  setSelectedGenre }) {
     </div>
   );
 }
+ 

@@ -4,7 +4,6 @@ import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Link } from "react-router-dom";
-
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +17,8 @@ export function Nav() {
       alert("Please enter a movie , tvshow , person...")
       return;
     }  if (query.trim()){
-    navigate(`/SearchResult/${encodeURIComponent(query)}`);}
+    navigate(`/SearchResult/${encodeURIComponent(query)}`);
+    setQuery("");}
    
     }
 

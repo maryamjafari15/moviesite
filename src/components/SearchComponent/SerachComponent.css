@@ -6,6 +6,7 @@
     justify-content:center;
     gap: 70px;
     align-items: center;  
+    padding-top: 100px;
   
 }
 .movieimg{
@@ -25,7 +26,7 @@
   flex-direction: column;
   width:70%;
   margin: auto;
-  padding-top: 60px;
+  padding-top: 50px;
  
 }
 .section2-resultsearch h1{

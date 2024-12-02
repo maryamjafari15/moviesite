@@ -18,6 +18,7 @@
    height:60vh ;
    box-shadow:  0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 254, 254, 0.19) ;
     border-radius: 15px;
+    width: 400px;
     
 }
 .infoDetails{
@@ -46,6 +47,12 @@
     border: 2px solid var(--card-blue);
     margin: 15px;
     cursor: pointer; 
+    transition: 0.5s;
+    opacity: 80%;
+  }
+  .actor-card2 img:hover{
+    border: 2px solid white;
+    opacity: 100%;
   }
   
   .actor-card2>h3 {
