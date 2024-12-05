@@ -1,7 +1,7 @@
 .trends {
   flex: 1;
   background-color: rgba(13, 27, 42, 0.6);
-  margin: 120px 50px 150px 40px;
+  margin: 70px 50px 150px 40px;
   padding: 20px 30px;
   border-radius: 15px;
   color: var(--text-white);
@@ -59,3 +59,47 @@
   font-size: 14px;
   color: #ffd700;
 }
+@media (max-width: 1600px) {
+  .trends{
+    flex: 1.5;
+    margin: 1%;
+    margin-top: -20px;
+  }
+  .trends > h2 {
+    font-size: 20px;
+    
+  }
+  .trends-list {
+    padding: 5px;
+    
+  }
+  
+  .trend-item {
+
+    height: 140px;
+    padding-bottom: 15px;
+  }
+  
+
+  .trend-info .title {
+    font-size: 13px;
+    
+  }
+  
+  .trend-info .year {
+    font-size: 10px;
+    
+  }
+  
+  .rating {
+    font-size: 10px;
+ 
+  }
+
+}
+@media (max-width:1024px){
+  .trends{
+    display: none;
+  }
+}
+

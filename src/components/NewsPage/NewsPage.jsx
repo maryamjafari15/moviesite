@@ -3,6 +3,7 @@ import { NewsMovie } from "../../data/news";
 import newsimg from "../../assets/newsimg.png";
 import "./NewsPage.css";
 import { Error } from "../ErrorComponent/ErrorComponent";
+import defaultImage from "../../assets/default-image.png";
 
 export function NewsPage() {
   const [news, setNews] = useState([]);
@@ -42,8 +43,7 @@ export function NewsPage() {
         <h1 className='newsh1'>News</h1>
         <hr />
         <div className='card3-grid'>
-          {loading ? <div> loading...</div> : null}
-          {error ? <Error /> : null}
+         
           {news
             .filter(
               (item) => item.urlToImage && !item.urlToImage.endsWith(".webp")
@@ -59,6 +59,7 @@ export function NewsPage() {
                   }
                   alt='news'
                   className='card3-image'
+                  onError={(e) => { e.target.src = defaultImage; }}
                 />
                 <div className='card3-content'>
                   <div className='card3-date'>
@@ -82,7 +83,10 @@ export function NewsPage() {
                 </div>
               </div>
             ))}
+            
         </div>
+        {loading ? <div className="discoverLoading2"> loading...</div> : null}
+          {error ? <Error /> : null}
       </div>
     </>
   );

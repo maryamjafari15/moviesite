@@ -5,14 +5,13 @@ import { DiscoverMovieRequest } from "../../data/genre&movie";
 import { Loading } from "../Loading/Loading";
 import { Error } from "../ErrorComponent/ErrorComponent";
 import { Hero } from "../Hero/Hero";
-
-
+import mobileIMG from "../../assets/mobileIMG.png";
 
 export function Background() {
   const [slidesData, setSlidesData] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setHasError] = useState(false);
-  
+
   const settings = {
     dots: true,
     infinite: true,
@@ -28,7 +27,6 @@ export function Background() {
       setloading(true);
       setHasError(false);
       try {
-        
         const movie = await DiscoverMovieRequest(1);
         const movies = movie.results.slice(1, 7);
         setSlidesData(movies);
@@ -42,30 +40,40 @@ export function Background() {
     getdata();
   }, []);
 
-
   return (
-    <div className='header-slider'>
-      {loading ? <Loading /> : null}
-      {error ? <Error /> : null}
-      <Slider {...settings}>
-        {slidesData?.map((movie) => (
-          <div key={movie.id}>
-            <div
-              className='slide'
-              style={{
-                backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
-              }}
-            >
-               {" "}
-                <Hero data={movie} />{" "}
-              <div className='overlayStyle'> </div>
-              <div>
-               
+    <>
+      <div className='head-mobile'>
+        <img src={mobileIMG} alt='movie' className='headmobileimg' />
+        <div>
+          <h1>Wellcome!</h1>
+          <h3>
+          A journey of emotions,
+            <br />
+            where every scene tells a story.
+          </h3>
+        </div>
+      </div>
+      <div className='header-slider'>
+        {loading ? <Loading /> : null}
+        {error ? <Error /> : null}
+
+        <Slider {...settings}>
+          {slidesData?.map((movie) => (
+            <div key={movie.id}>
+              <div
+                className='slide'
+                style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
+                }}
+              >
+                {" "}
+                <Hero data={movie} /> <div className='overlayStyle'> </div>
+                <div></div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
-    </div>
+          ))}
+        </Slider>
+      </div>
+    </>
   );
 }

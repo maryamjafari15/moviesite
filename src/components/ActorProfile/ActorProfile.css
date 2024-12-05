@@ -23,9 +23,11 @@
   pointer-events: none;
 }
 .backgroundofpeopledetails img {
-  background-size: cover;
+  display: block;
+  object-fit: cover;
   width: 100%;
-  margin: auto;
+  height: 100%;
+  margin: 0;
 }
 .imageofstar {
   width: 300px;
@@ -39,9 +41,9 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
- width: 80%;
- margin: auto;
- margin-top: -250px;
+  width: 80%;
+  margin: auto;
+  margin-top: -250px;
 }
 .titlepeople {
   display: flex;
@@ -54,11 +56,10 @@
   flex-wrap: wrap;
   padding-left: 60px;
 }
-.imgpeople2{
+.imgpeople2 {
   flex: 1;
 }
 .titlepeople h1 {
-  
   font-size: 80px;
   font-weight: 600;
   text-wrap: wrap;
@@ -75,7 +76,7 @@
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 254, 254, 0.19);
 }
-.sec1-people2{
+.sec1-people2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,53 +86,49 @@
   margin-top: 50px;
 }
 
-.sec1-people2-1{
+.sec1-people2-1 {
   flex: 3;
 }
-.sec1-people2-2{
+.sec1-people2-2 {
   flex: 1;
- 
 }
-.peopledetailcard{
+.peopledetailcard {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
- 
-
 }
-.sec1-people2-1 h2{
- font-size: 40px;
- font-weight: 400;
- padding-bottom: 50px;
+.sec1-people2-1 h2 {
+  font-size: 40px;
+  font-weight: 400;
+  padding-bottom: 50px;
 }
-.sec1-people2-1 p{
+.sec1-people2-1 p {
   display: -webkit-box;
-    -webkit-line-clamp: 12;  
-    -webkit-box-orient: vertical;
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    line-height: 1.7; 
-    max-height: calc(1.5em * 15);
-    text-justify:inter-word;
-    text-align: justify;
+  -webkit-line-clamp: 12;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.7;
+  max-height: calc(1.5em * 15);
+  text-justify: inter-word;
+  text-align: justify;
 }
-.sec1-people3{
+.sec1-people3 {
   display: flex;
   flex-direction: column;
- 
+
   margin: auto;
-  margin-top:10vh;
+  margin-top: 10vh;
 }
 
-.sec1-people3 h2{
+.sec1-people3 h2 {
   font-size: 40px;
- font-weight: 400;
- padding-bottom: 50px;
+  font-weight: 400;
+  padding-bottom: 50px;
 }
-.slider-container2 .slick-arrow{
+.slider-container2 .slick-arrow {
   background-color: var(--background-dark);
   margin: 0 -60px;
-  
 }
 .no-data-message {
   text-align: center;
@@ -139,35 +136,116 @@
   color: #fff7f7;
   margin-top: 20px;
 }
-.popcard4{
+.popcard4 {
   background-repeat: no-repeat;
   background-size: cover;
-  height: 255px;
+  height: 245px;
   padding: 20px;
   margin: 15px;
   opacity: 90%;
-  width: 170px;
+  width: 160px;
   border-radius: 15px;
   background-position: "center";
-  
+
   position: relative;
 }
-.popcard4:hover .overlay{
+.popcard4:hover .overlay {
   background-color: rgba(0, 0, 0, 0.5);
 }
-.popcard4:hover .spanmovie{
+.popcard4:hover .spanmovie {
   opacity: 1;
 }
-@media (max-width: 768px) {
+@media (max-width:1600px){
+  .sec1-people2-1 {
+    flex: 2;
+  }
+  .sec1-people2-2 {
+    flex: 2;
+  }
+}
+@media (max-width:1200px){
+  .popcard4 {
+    width: 140px;
+    height: 200px;
+  }
+
+  .titlepeople h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 1024px) {
+  .sec1-people2-1 h2 ,.sec1-people3 h2 {
+    font-size: 30px;
+    
+  }
+  .titlepeople h1 {
+    font-size: 45px;
+  }
+  .titlepeople p {
+    font-size: 16px;
+  }
+  .sec1-people {
+    margin-top: -150px;
+    width: 90%;
+  }
+  .backgroundofpeopledetails{
+    height: 40vh;
+  }
+ 
   .popcard4 {
     width: 120px;
     height: 180px;
   }
 }
+@media (max-width: 768px) {
 
-@media (max-width: 480px) {
+  .titlepeople h1 {
+    font-size: 40px;
+  }
+  .titlepeople p {
+    font-size: 16px;
+  }
+  .sec1-people {
+    flex-direction: column;
+    margin-top: -100px;
+    width: 100%;
+  }
+  .titlepeople {
+    width: 100%;
+    padding-left: 20px;
+    align-items: center;
+    text-align: center;
+  }
+  .imageofstar {
+    width: 150px;
+    
+  }
+  .imageofstar2{
+    width: 100px;
+  }
+  .imgpeople2 {
+    margin-top: 20px;
+  }
+  .peopledetailcard {
+    grid-template-columns: 1fr;
+  }
+  .sec1-people3 h2 {
+    font-size: 30px;
+  }
   .popcard4 {
     width: 100px;
     height: 150px;
+  }
+  .sec1-people2-1 p { 
+    line-height: 1.5;
+    max-height: calc(1.5em * 15);
+    text-justify: inter-word;
+    text-align: start;
+  }
+  .sec1-people2-1 {
+    flex: 3;
+  }
+  .sec1-people2-2 {
+    flex: 1;
   }
 }

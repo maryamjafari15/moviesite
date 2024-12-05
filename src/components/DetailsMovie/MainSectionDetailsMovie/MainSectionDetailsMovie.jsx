@@ -92,7 +92,7 @@ export function MainSectionDetailsMovie(props) {
 
       <div className='main-container2'>
         
-        <div className='flex justify-center items-start'>
+        <div className='flex justify-center items-end w-full'>
           <div className='imageDetailsmoviecontainer'>
             <img
               src={data.poster_path

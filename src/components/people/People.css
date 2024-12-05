@@ -1,10 +1,12 @@
 .people-con{
    display: flex;
-   padding: 40px 13%;
+   padding: 40px;
    justify-content: center;
    align-items: center;
    gap: 20px;
    flex-wrap: wrap;
+   width: 70%;
+   margin: auto;
 
 }
 .actor-card {

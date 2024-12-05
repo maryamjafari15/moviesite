@@ -21,8 +21,11 @@ body {
   min-width: 320px;
   color: var(--text-white);
   scroll-behavior: smooth;
-  max-width: 3000px;
-  margin: auto;
+  
+}
+.container-main{
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 *,

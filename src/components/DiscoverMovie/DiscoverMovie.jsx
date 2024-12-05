@@ -10,7 +10,7 @@ import { ProgressChart } from "../ProgressChart/ProgressChart";
 
 export function DiscoverMovie() {
   const [data, setData] = useState([]);
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   const [error, setHasError] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [total_pages, setTotal_pages] = useState(1);
@@ -158,9 +158,8 @@ export function DiscoverMovie() {
       </div>
       <hr />
       <div className='movie-grid'>
-        {loading ? <div> loading... </div> : null}
-        {error ? <Error /> : null}
-        {data?.map((movie) => (
+       
+        {data?.filter((movie) => movie.poster_path).map((movie) => (
           <div
             className='movie-card'
             key={movie.id}
@@ -188,7 +187,10 @@ export function DiscoverMovie() {
             <div className='movie-title'>{movie.title}</div>
           </div>
         ))}
+       
       </div>
+      {loading ? <div className="discoverLoading"> loading... </div> : null}
+        {error ? <Error /> : null}
       <Pagination
         currentPage={currentPage}
         totalPages={total_pages}

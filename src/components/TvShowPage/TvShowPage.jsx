@@ -149,12 +149,12 @@ export function TvShowPage() {
           type={"tv"}
         />
         <div className='movies2'>
+        {loading ? <div className="discoverLoading"> loading... </div> : null}
         <div className='movie-grid2'>
-          {loading ? <div> loading... </div> : null}
-          {error ? <Error /> : null}
+         
           {tvshows?.map((movie) => (
             <div
-              className='movie-card'
+              className='movie-card2'
               key={movie.id}
               onClick={() => routeChange(movie, movie.title ? "movie" : "tv")}
             >
@@ -181,6 +181,8 @@ export function TvShowPage() {
             </div>
           ))}
         </div>
+        {loading ? <div className="discoverLoading"> loading... </div> : null}
+          {error ? <Error /> : null}
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

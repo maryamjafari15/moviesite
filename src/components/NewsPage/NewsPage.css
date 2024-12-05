@@ -92,3 +92,13 @@
 .card3-link:hover {
   text-decoration: underline;
 }
+.discoverLoading2{
+  width: 80%;
+  background-color: var(--card-blue);
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  font-weight: 600;
+}

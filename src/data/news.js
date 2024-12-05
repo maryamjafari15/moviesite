@@ -13,7 +13,7 @@ export async function NewsMovie() {
 
     const data = await response.json();
     const articles = data.articles;
-    console.log (data.articles);
+    // console.log (data.articles);
     return articles; 
 
   } catch (error) {

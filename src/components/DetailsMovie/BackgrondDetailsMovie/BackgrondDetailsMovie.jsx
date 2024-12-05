@@ -29,7 +29,7 @@ const result3= props.type;
           {result.overview}
           </p>
           <button onClick={()=>window.open( result2, "_blank")   
-          } disabled={!result2}>Watch Trailer</button>
+          } className={result2 ? "activebtnmovie" : "hiddenbtnmovie"}>Watch Trailer</button>
         </div>
       </div>
       <div

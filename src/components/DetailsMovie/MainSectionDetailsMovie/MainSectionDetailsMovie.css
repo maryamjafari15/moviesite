@@ -1,71 +1,110 @@
-.main-container2{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: auto;
-    margin-top: 50px;
-    letter-spacing: 0.5px;
+.main-container2 {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  letter-spacing: 0.5px;
 }
-.infoDetails>h1{
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 30px;
+.infoDetails > h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
-.imageDetailsmoviecontainer{
-    flex: 2;
+.imageDetailsmoviecontainer {
+  flex: 2;
 }
-.imageDetailsmoviecontainer img{
-   height:60vh ;
-   box-shadow:  0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 254, 254, 0.19) ;
-    border-radius: 15px;
-    width: 400px;
-    
+.imageDetailsmoviecontainer img {
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 254, 254, 0.19);
+  border-radius: 15px;
+  width: 360px;
 }
-.infoDetails{
-    flex: 3;
-    padding-top: 30px;
+.infoDetails {
+  flex: 3;
+  padding-top: 30px;
 }
-.castcontainer{
-    display: flex;
-    margin-bottom: 30px;
+.castcontainer {
+  display: flex;
+  margin-bottom: 30px;
 }
 .actor-card2 {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    color: white;
-    flex-direction: column;
-    width: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  color: white;
+  flex-direction: column;
+  width: 120px;
+}
+
+.actor-card2 img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--card-blue);
+  margin: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+  opacity: 80%;
+}
+.actor-card2 img:hover {
+  border: 2px solid white;
+  opacity: 100%;
+}
+
+.actor-card2 > h3 {
+  font-size: 12px;
+}
+.infoDetails h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.infoDetails > h3 {
+  font-size: 16px;
+  font-weight: 400;
+}
+.keywords-text {
+  opacity: 70%;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
+@media (max-width: 1440px){
+  .imageDetailsmoviecontainer img {
+    width: 300px;
+  }
+  .main-container2 {
+    margin-top: 20px;
+    
+  }
+  .infoDetails > h1 {
+    font-size: 28px;
+    margin-bottom: 0px;
+  }
+
+
+  .actor-card2 {
+    width: 80px;
+    
 
   }
   
   .actor-card2 img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--card-blue);
-    margin: 15px;
-    cursor: pointer; 
-    transition: 0.5s;
-    opacity: 80%;
+    width: 80px;
+    height: 80px;
+
   }
-  .actor-card2 img:hover{
-    border: 2px solid white;
-    opacity: 100%;
-  }
+ 
   
-  .actor-card2>h3 {
-    font-size: 12px;
-   
+  .actor-card2 > h3 {
+    font-size: 10px;
   }
-  .infoDetails h2{
-    font-size: 20px;
-    font-weight: 600;
-    
+  .infoDetails h2 {
+    font-size: 18px;
+    font-weight: 500;
   }
-  .infoDetails>h3{
-    font-size: 16px;
+  .infoDetails > h3 {
+    font-size: 14px;
     font-weight: 400;
   }
   .keywords-text {
@@ -73,3 +112,121 @@
     letter-spacing: 0.5px;
     font-weight: 300;
   }
+
+}
+@media (max-width: 1024px) {
+  .imageDetailsmoviecontainer img {
+    width: 250px;
+  }
+  .main-container2 {
+    margin-top: 20px;
+    
+  }
+  .infoDetails {
+    flex: 2;
+    
+  }
+  .infoDetails > h1 {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+
+
+  .actor-card2 {
+    width: 50px;
+    
+
+  }
+  
+  .actor-card2 img {
+    width:50px;
+    height: 50px;
+
+  }
+ 
+  
+  .actor-card2 > h3 {
+    font-size: 10px;
+  }
+  .infoDetails h2 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .infoDetails > h3 {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .keywords-text {
+    opacity: 70%;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+    font-size: 10px;
+  }
+
+}
+@media (max-width: 768px) {
+  .main-container2 {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    padding:  20px;
+  }
+  .imageDetailsmoviecontainer img {
+   display: none;
+  }
+  .infoDetails > h1 {
+    font-size: 24px;
+  }
+  .infoDetails{
+    margin: 10px 20px;
+  }
+  .infoDetails {
+    flex: 10;
+    
+  }
+  .infoDetails h2 {
+    font-size: 16px;
+  }
+  .infoDetails > h3 {
+    font-size: 12px;
+  }
+  .actor-card2 {
+    width: 80px;
+  }
+  .castcontainer{
+    flex-wrap: wrap;
+  }
+  .actor-card2 img {
+    width: 60px;
+    height: 60px;
+  }
+  .actor-card2 > h3 {
+    font-size: 9px;
+  }
+}
+@media (max-width: 480px) {
+  .main-container2 {
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .infoDetails > h1 {
+    font-size: 20px;
+  }
+  .infoDetails h2 {
+    font-size: 14px;
+  }
+  .infoDetails > h3 {
+    font-size: 10px;
+  }
+  .actor-card2 {
+    width: 70px;
+  }
+  .actor-card2 img {
+    width: 50px;
+    height: 50px;
+  }
+  .actor-card2 > h3 {
+    font-size: 8px;
+  }
+}

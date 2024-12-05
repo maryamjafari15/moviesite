@@ -1,7 +1,7 @@
 .movies2{
     flex:4;
 
-    margin: 40px;
+    margin: 20px 40px;
     padding: 0px 20px;
      color: var(--text-white);
      height: fit-content;
@@ -26,7 +26,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin:20px 100px 50px 100px ;
+    margin:10px 100px 50px 100px ;
 }
 .movie-card2 {
     width: 80%;
@@ -36,7 +36,6 @@
     margin: auto;
     padding-bottom: 20px;
     cursor: pointer;
-    margin-bottom: 60px;
     transition: 0.5s;
     
 }

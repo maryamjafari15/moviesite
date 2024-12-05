@@ -5,7 +5,7 @@
   z-index: 9999;
   padding: 70px;
   width: 35%;
-  padding-top: 50vh;
+  padding-top: 55vh;
   
   
 }
@@ -18,17 +18,74 @@
 
 }
 
-.text{
+.heroContainer>.text{
     font-size: 16px;
     color: var(--text-white);
     text-align: justify;
     text-justify: inter-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+            line-clamp: 3;
+    -webkit-box-orient: vertical;
     
 }
 .btnContainer{
   padding-top: 30px;
   display: flex;
   justify-content: start;
+  align-items: center;
   gap: 10px;
 
+}
+@media (max-width: 1440px){
+  .container3 { 
+    padding: 70px;
+    width: 50%;
+    padding-top: 50vh;
+  }
+  
+  .title{
+      font-size: 35px;
+      
+  
+  }
+  
+  .heroContainer>.text{
+      font-size:14px;
+      
+      
+  }
+  .btnContainer{
+    padding-top: 20px;
+    
+  
+  }
+    
+}
+@media (max-width: 1024px){
+  .container3 { 
+    padding: 70px;
+    width: 50%;
+    padding-top: 20vh;
+  }
+  
+  .title{
+      font-size: 25px;
+      
+  
+  }
+  
+  .heroContainer>.text{
+      font-size:10px;
+      
+      
+  }
+  .btnContainer{
+    padding-top: 10px;
+    
+  
+  }
+    
 }

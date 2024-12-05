@@ -19,7 +19,9 @@ const theme = createTheme({
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
+    <div className="container-main">
       <App />
+      </div>
     </ThemeProvider>
   </StrictMode>
 );

@@ -167,9 +167,9 @@ export function MoviePage() {
         />
 
         <div className='movies2'>
+        {loading ? <div className="discoverLoading"> loading... </div> : null}
           <div className='movie-grid2'>
-            {loading ? <div> loading... </div> : null}
-            {error ? <Error /> : null}
+            
             {movies?.map((movie) => (
               <div
                 className='movie-card2'
@@ -199,6 +199,8 @@ export function MoviePage() {
               </div>
             ))}
           </div>
+          {loading ? <div className="discoverLoading"> loading... </div> : null}
+            {error ? <Error /> : null}
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

@@ -1,9 +1,12 @@
-import Button from "@mui/material/Button";
+import { useMediaQuery, useTheme, Button } from "@mui/material";
 import "./GenreBtn.css";
 import { useState } from "react";
 
 export function GenreBtn({ setSelectedGenre }) {
   const [activeGenre, setActiveGenre] = useState("");
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const Genres = [
     {
@@ -39,7 +42,6 @@ export function GenreBtn({ setSelectedGenre }) {
     <div className='containergenres'>
       {Genres?.map((genre) => (
         <Button
-         
           onClick={() => handleButtonClick(genre.id)}
           key={genre.id}
           variant='outlined'
@@ -51,7 +53,7 @@ export function GenreBtn({ setSelectedGenre }) {
             backgroundColor:
               activeGenre === genre.id ? "primary.main" : "transparent",
             borderRadius: "25px",
-            width: "150px",
+            width: isSmallScreen ? "100px" : isMediumScreen ? "120px" : "150px",
             transition: "0.5s",
             "&:hover": {
               backgroundColor: "primary.main",
@@ -63,15 +65,14 @@ export function GenreBtn({ setSelectedGenre }) {
         </Button>
       ))}
       <Button
-        
         onClick={() => handleButtonClick("")}
         variant='outlined'
         sx={{
           color: activeGenre === "" ? "primary.contrastText" : "primary.main",
           backgroundColor: activeGenre === "" ? "primary.main" : "transparent",
           borderRadius: "25px",
-          width: "150px",
-          marginLeft: "10px",
+          width: isSmallScreen ? "100px" : isMediumScreen ? "120px" : "150px",
+          
           transition: "0.5s",
           "&:hover": {
             backgroundColor: "primary.main",

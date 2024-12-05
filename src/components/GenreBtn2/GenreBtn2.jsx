@@ -1,10 +1,12 @@
-import Button from "@mui/material/Button";
+import { useMediaQuery, useTheme, Button } from "@mui/material";
 import "./GenreBtn2.css";
 import { useState } from "react";
 
 export function GenreBtn2({  setSelectedGenre , type }) {
   const [activeGenre, setActiveGenre] = useState("");
-  
+  const theme = useTheme();
+  const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
 
   const Genres = [
     {
@@ -178,6 +180,7 @@ export function GenreBtn2({  setSelectedGenre , type }) {
               activeGenre === genre.id ? "primary.main" : "transparent",
               borderRadius: "25px",
             width: "fit-content",
+            fontSize: isLargeScreen ? "12px" : isMediumScreen ? "10px" : "14px",
             transition: "0.5s",
             textWrap:"nowrap",
             "&:hover": {
@@ -198,7 +201,7 @@ export function GenreBtn2({  setSelectedGenre , type }) {
             backgroundColor: activeGenre === "" ? "primary.main" : "transparent",
             borderRadius: "25px",
             width: "150px",
-            marginLeft: "10px",
+            fontSize: isLargeScreen ? "12px" : isMediumScreen ? "10px" : "14px",
             transition: "0.5s",
             "&:hover": {
               backgroundColor: "primary.main",

@@ -69,8 +69,7 @@ const currentResults = allResults.slice(indexOfFirstResult, indexOfLastResult);
         <h1>Search Results</h1>
         <hr />
         <div className='card-container1'>
-          {loading ? <div>Loading...</div> : null}
-          {error ? <Error /> : null}
+          
           {currentResults.length > 0 ? (
             currentResults
               .filter((movie) => movie.poster_path)
@@ -93,7 +92,10 @@ const currentResults = allResults.slice(indexOfFirstResult, indexOfLastResult);
             <p>No results found!</p>
           )}
         </div>
+        {loading ? <div className="discoverLoading2">Loading...</div> : null}
+          {error ? <Error /> : null}
       </div>
+     
       <Pagination
         totalPages={totalPages}
         currentPage={currentPage}
