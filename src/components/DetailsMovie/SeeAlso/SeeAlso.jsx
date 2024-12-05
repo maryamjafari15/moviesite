@@ -9,8 +9,9 @@ console.log(result)
   
   const navigate = useNavigate();
   const routeChange = (movie, mediaType) => {
-    let path = `/MovieDetails/${mediaType}/${movie.title || movie.name}/${
-      movie.movieID
+    let encodedTitle = encodeURIComponent(movie.title || movie.name);
+    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${
+      movie.id
     }}`;
     navigate(path);
   };
@@ -30,7 +31,7 @@ console.log(result)
                     routeChange(movie, movie.title ? "movie" : "tv")
                   }
                 />
-                <div>{movie?.title}</div>
+                <div className="title3">{movie?.title}</div>
               </div>
             )
         )}

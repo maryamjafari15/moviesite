@@ -42,7 +42,7 @@ function App() {
       element: <SearchResult/>,
     },
     {
-      path: "/MovieDetails/:mediaType/:key/:id",
+      path: "/MovieDetails/:mediaType/:title/:id",
       element: <MovieDetails/>,
     },
     {

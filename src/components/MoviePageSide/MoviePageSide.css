@@ -1,0 +1,18 @@
+.MoviePageSide{
+    flex: 1;
+    background-color: rgba(13, 27, 42, 0.6);
+    margin: 20px 50px;
+    padding: 20px 30px;
+    border-radius: 15px;
+    color: var(--text-white);
+    height: fit-content;
+   
+  }
+  .MoviePageSide>h2{
+    font-size: 30px;
+    word-spacing: .2cm;
+    text-align: start;
+   margin-top: 25px;
+    margin-bottom: 30px;
+  }
+

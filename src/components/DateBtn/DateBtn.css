@@ -1,0 +1,14 @@
+.date-filter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:20px ;
+}
+.dateinput{
+    background-color: var(--card-blue);
+    width:200px;
+    height: 50px;
+    border-radius: 15px;
+    text-align: center;
+}

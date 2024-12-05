@@ -1,0 +1,104 @@
+.movies2{
+    flex:4;
+
+    margin: 40px;
+    padding: 0px 20px;
+     color: var(--text-white);
+     height: fit-content;
+     overflow: hidden;
+     
+     
+}
+.header-container>h2{
+    font-size: 30px;
+    word-spacing: .2cm;
+    text-align: start;
+    max-width: 30%;
+    margin-bottom: 15px;
+  }
+
+.movie-grid2 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+   
+    padding: 40px 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin:20px 100px 50px 100px ;
+}
+.movie-card2 {
+    width: 80%;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: auto;
+    padding-bottom: 20px;
+    cursor: pointer;
+    margin-bottom: 60px;
+    transition: 0.5s;
+    
+}
+.movie-card2 img {
+   
+    width: 142px;
+    height: 213px;
+    border-radius: 10px;
+    opacity: 100%;
+   
+}
+.movie-card2:hover{
+    opacity: 100%;
+    transform: translateY(-10px);
+}
+.tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--blue-logo) ;
+    padding: 5px 10px;
+    color: var(--text-white);
+    border-radius: 5px;
+    font-size: 12px;
+}
+.tag2{
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    background-color: var(--card-blue) ;
+    padding: 5px 10px;
+    color: var(--text-white);
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.movie-title2 {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 5px;
+    text-wrap: nowrap;
+}
+.header-container2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
+    flex: 4;
+}
+.headerPageMovie{
+    font-size: 38px;
+    font-weight: 600;
+    flex: 1;  
+    margin-bottom: 15px;      
+    
+  
+}
+.section1PageMvie{
+    border-bottom: 2px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:100px 50px 0px 50px;
+}

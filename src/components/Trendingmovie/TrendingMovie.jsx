@@ -12,9 +12,10 @@ export function TrendingMovie() {
 
   const navigate = useNavigate();
   const routeChange = (movie, mediaType) => {
-    let path = `/MovieDetails/${mediaType}/${movie.title || movie.name}/${
+    let encodedTitle = encodeURIComponent(movie.title || movie.name);
+    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${
       movie.id
-    }}`;
+    }`;
     navigate(path);
   };
 

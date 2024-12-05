@@ -1,13 +1,12 @@
 import { Nav } from "../components/Nav/Nav.jsx";
 import { Footer } from "../components/Footer/Footer.jsx";
-import { MoviePage
+import { MoviePage} from "../components/MoviePage/MoviePage.jsx";
 
- } from "../components/MoviePage/MoviePage.jsx";
 export function Movies(){
     return(
         <div>
-           <Nav/>
-           <MoviePage/>
+           <Nav/>          
+           <MoviePage/>    
            <Footer/>
         </div>
     )

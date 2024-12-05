@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import { DiscoverMovieRequest } from "../../data/genre&movie";
 import { Loading } from "../Loading/Loading";
 import { Error } from "../ErrorComponent/ErrorComponent";
-import { Hero } from "../hero/Hero";
+import { Hero } from "../Hero/Hero";
 
 
 

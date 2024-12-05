@@ -1,52 +1,46 @@
 import { AccessTokenAuth, BASE_URL } from "./constants.js";
 
-export async function MoviesByCategoryRequest(category, currentPage ,selectedGenre = "") {
+export async function MoviesByCategoryRequest(
+  category = "popular",
+  currentPage = 1,
+  selectedGenre = "",
+  minDate = "",
+  maxDate = ""
+) {
   const genreQuery = selectedGenre ? `&with_genres=${selectedGenre}` : "";
-  const response = await fetch(
-    `${BASE_URL}/movie/${category}?language=en-US&page=${currentPage}&sort_by=popularity.desc${genreQuery}`,
-    {
-      headers: {
-        accept: "application/json",
-        Authorization: AccessTokenAuth,
-      },
-    }
-  );
-  console.log("Selected Genre:", selectedGenre);
-console.log("Genre Query:", genreQuery);
-  const data = await response.json();
-  return data;
-} 
+  const dateQuery =
+    minDate && maxDate
+      ? `&release_date.gte=${minDate}&release_date.lte=${maxDate}`
+      : "";
+  let EndPointMovie = `${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${currentPage}${dateQuery}${genreQuery}`;
 
-export async function GenreMovieRequest() {
-  const response = await fetch(`${BASE_URL}/genre/movie/list?language=en`, {
+  if (category === "popular") {
+    EndPointMovie  += "&sort_by=popularity.desc";
+  } else if (category === "now_playing") {
+    EndPointMovie  += `&sort_by=popularity.desc&with_release_type=2|3`;
+  }else if (category=== "top_rated") {
+    EndPointMovie += "&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200";
+  }else if(category==="upcoming") {
+    EndPointMovie +="&sort_by=popularity.desc&with_release_type=2|3"
+    
+  }
+
+
+  const response = await fetch(EndPointMovie , {
     headers: {
       accept: "application/json",
       Authorization: AccessTokenAuth,
     },
   });
+  
+
   const data = await response.json();
-  return data.genres;
+
+
+  return data;
 }
 
-export async function getMoviesWithGenresAndCategory(currentPage, selectedGenre = "", category = "") {
-  const movies = await MoviesByCategoryRequest(category, currentPage, selectedGenre );
-  const genres = await GenreMovieRequest();
-
-  const moviesWithGenres = movies.results.map((movie) => {
-    const movieGenres = movie.genre_ids
-      .map((genreId) => {
-        const genre = genres.find((genre) => genre.id === genreId);
-        return genre ? genre.name : null;
-      })
-      .filter(Boolean);
-
-    return { ...movie, genres: movieGenres };
-  });
-
-
-
-  return {
-    data: moviesWithGenres,
-    total_pages: movies.total_pages,
-  };
-}
+// ("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}");
+// ("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc");
+// ("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200");
+// ("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}");

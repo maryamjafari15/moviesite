@@ -10,10 +10,15 @@ export function Hero(props) {
     const{ title , overview , id}= props.data;
     
     const navigate = useNavigate();
+
   const routeChange = (mediaType ,title  , id) => {
-    let path = `/MovieDetails/${mediaType}/${title}/${id}}`;
+    let encodedTitle = encodeURIComponent(title);
+    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${id}}`;
     navigate(path);
   };
+
+ 
+
 
   return (
     <motion.div

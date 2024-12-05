@@ -6,8 +6,9 @@ import { useParams } from "react-router-dom";
 
 export function MovieDetails(){
   
-    const { mediaType, id } = useParams();
-    // console.log(MovieID);
+    const { mediaType, id  } = useParams();
+    
+   
 
     return(
         <div>

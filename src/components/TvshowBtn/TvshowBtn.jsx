@@ -1,13 +1,13 @@
 import Button from "@mui/material/Button";
-import "./MovieBtn.css";
+import "./TvshowBtn.css";
 import { useState } from "react";
 
 
-export function MovieBtn({ setCategory }) {
+export function TvshowBtn({ setCategory }) {
   const [activeCategory, setActiveCategory] = useState("popular");
 
-  const MovieBtnName = [
-    "popular", "now_playing",  "top_rated" , "upcoming"
+  const TvshowBtnName = [
+    "popular", "on TV",  "top_rated" , "Airing Today"
 
     ]
  const handleButtonClick = (name) => {
@@ -18,7 +18,7 @@ export function MovieBtn({ setCategory }) {
 
   return (
     <div className='containergenres'>
-      {MovieBtnName?.map((name , index) => (
+      {TvshowBtnName?.map((name , index) => (
         <Button
           onClick={() => {
             handleButtonClick(name);
