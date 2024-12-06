@@ -158,7 +158,7 @@ export function MoviePage() {
         </div>
       </div>
 
-      <div className='flex'>
+      <div className='moviePageContainer2'>
         <MoviePageSide
           setSelectedGenre={setSelectedGenre}
           setMinDate={setMinDate}

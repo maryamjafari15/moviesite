@@ -117,7 +117,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    gap: 70px;
+    gap: 2%;
     align-items: center;
     padding-top: 100px;
   }
@@ -129,5 +129,14 @@
   }
   .head-mobile h3{
     font-size: 20px;
+  }
+ .search-box2{
+  margin-top: 20px;
+  
+ }
+}
+@media (max-width: 580px) {
+  .head-mobile img {
+    width: 170px;
   }
 }

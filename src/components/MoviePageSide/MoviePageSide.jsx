@@ -9,7 +9,7 @@ export function MoviePageSide({setSelectedGenre ,setMaxDate , setMinDate , type}
         <div className="MoviePageSide">
             <h2>Genres</h2>
             <GenreBtn2  setSelectedGenre={setSelectedGenre} type={type}/>                                
-            <h2>{type==="movie"?"Release Dates": "Air Dates"}</h2>
+            <h2 className="dateh2">{type==="movie"?"Release Dates": "Air Dates"}</h2>
             <DateBtn setMinDate={setMinDate} setMaxDate={setMaxDate} />
         </div>
     )

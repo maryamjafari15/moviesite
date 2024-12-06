@@ -56,7 +56,7 @@ const currentResults = allResults.slice(indexOfFirstResult, indexOfLastResult);
     <>
       <div className='head-search'>
         <img src={moviesearch} alt='movie' className='movieimg' />
-        <div>
+        <div className="text5">
           <h1>Hello!</h1>
           <h3>
             Millions of movies, TV shows and people to discover.

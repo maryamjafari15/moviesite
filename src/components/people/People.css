@@ -38,5 +38,55 @@
     font-size: 12px;
     margin-top: 8px;
   }
+
+  @media (max-width: 1024px) {
+    .people-con {
+      gap: 10px;
+      width: 80%;
+    }
   
+    .profilepeople {
+      height: 160px;
+    }
+  
+    .actor-card h3 {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .people-con {
+      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      width: 90%;
+    }
+   
+    .actor-card {
+      padding: 10px;
+    }
+  
+    .profilepeople {
+      height: 160px;
+    }
+  
+    .actor-card h3 {
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+   
+  
+    .actor-card {
+      padding: 10px;
+    }
+  
+    .profilepeople {
+      height: 120px;
+    }
+  
+    .actor-card h3 {
+      font-size: 0.6rem;
+    }
+  }
   

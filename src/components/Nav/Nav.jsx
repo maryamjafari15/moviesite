@@ -1,26 +1,36 @@
 import logo from "../../assets/logo.png";
 import "./Nav.css";
-import { TextField, InputAdornment } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { useTheme, useMediaQuery } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import { SearchBox } from "../SearchBox/SearchBox";
 
 export function Nav() {
   const [query, setQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  const theme = useTheme();
+  const isBelowLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
 
   const handleSearch = async function getdata(e) {
     e.preventDefault();
-    if (!query.trim ()){
-      alert("Please enter a movie , tvshow , person...")
+    if (!query.trim()) {
+      alert("Please enter a movie , tvshow , person...");
       return;
-    }  if (query.trim()){
-    navigate(`/SearchResult/${encodeURIComponent(query)}`);
-    setQuery("");}
-   
     }
+    if (query.trim()) {
+      navigate(`/SearchResult/${encodeURIComponent(query)}`);
+      setQuery("");
+    }
+  };
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
 
   return (
     <>
@@ -30,7 +40,7 @@ export function Nav() {
           <h1 className='logoh1'> FlickNest</h1>
         </Link>
 
-        <ul className='list'>
+        <ul className={`list ${menuOpen && isBelowLargeScreen ? "active" : ""}`}>
           <li>
             <Link to='/' className='listitem' href=''>
               {" "}
@@ -53,54 +63,20 @@ export function Nav() {
             </Link>
           </li>
         </ul>
-        <div className='search-box'>
-          <form onSubmit={handleSearch}>
-            <TextField
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder='Search for a movie, tv show'
-              variant='outlined'
-              size='small'
-              sx={{
-                width: "300px",
-                backgroundColor: "#fcfcfcc5",
-                borderRadius: "15px",
-                "& .MuiOutlinedInput-root": {
-                  cursor: "pointer",
-                  "& fieldset": {
-                    borderColor: "transparent",
-                  },
-                  "&:hover fieldset": {
-                    borderColor: "transparent",
-                  },
-                  "&.Mui-focused fieldset": {
-                    borderColor: "transparent",
-                    backgroundColor: "#fcfcfc",
-                    borderRadius: "15px",
-                    zIndex: "-22",
-                  },
-                },
-                "& .MuiOutlinedInput-input": {
-                  cursor: "text",
-                },
-              }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position='start'>
-                    <SearchIcon onClick={handleSearch} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </form>
+        <div className="search-box">
+          <SearchBox
+            query={query}
+            setQuery={setQuery}
+            handleSearch={handleSearch}
+            isBelowLargeScreen={isBelowLargeScreen}
+          />
         </div>
-        <div className='menu'>
-          <label htmlFor='headermenu'>
-            <MenuOutlinedIcon />
-          </label>
-        </div>
+        {isBelowLargeScreen ? ( 
+          <div className='menu' onClick={toggleMenu}>
+            {menuOpen ? <CloseIcon fontSize="large" /> : <MenuOutlinedIcon fontSize="large" />}
+          </div>
+        ) : null}
       </header>
     </>
   );
 }
-

@@ -180,7 +180,7 @@ export function GenreBtn2({  setSelectedGenre , type }) {
               activeGenre === genre.id ? "primary.main" : "transparent",
               borderRadius: "25px",
             width: "fit-content",
-            fontSize: isLargeScreen ? "12px" : isMediumScreen ? "10px" : "14px",
+            fontSize: isLargeScreen ? "10px" : isMediumScreen ? "8px" : "14px",
             transition: "0.5s",
             textWrap:"nowrap",
             "&:hover": {
@@ -200,8 +200,8 @@ export function GenreBtn2({  setSelectedGenre , type }) {
             color: activeGenre === "" ? "primary.contrastText" : "primary.main",
             backgroundColor: activeGenre === "" ? "primary.main" : "transparent",
             borderRadius: "25px",
-            width: "150px",
-            fontSize: isLargeScreen ? "12px" : isMediumScreen ? "10px" : "14px",
+            width: isLargeScreen ? "100px" : isMediumScreen ? "80px" : "150px",
+            fontSize: isLargeScreen ? "10px" : isMediumScreen ? "8px" : "14px",
             transition: "0.5s",
             "&:hover": {
               backgroundColor: "primary.main",

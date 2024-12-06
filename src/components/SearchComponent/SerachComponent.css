@@ -1,111 +1,329 @@
-.head-search{
-    background-color: var(--nav-dark);
-    height: 40vh;
-    display: flex;
-    width: 100%;
-    justify-content:center;
-    gap: 70px;
-    align-items: center;  
-    padding-top: 100px;
-  
+.head-search {
+  background-color: var(--nav-dark);
+  height: 40vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 70px;
+  align-items: center;
+  padding-top: 100px;
 }
-.movieimg{
-    width: 450px;
+.movieimg {
+  width: 450px;
 }
-.head-search h1{
-    font-size: 60px;
-    
+.head-search h1 {
+  font-size: 60px;
 }
-.head-search h3{
-    font-size: 30px;
+.head-search h3 {
+  font-size: 30px;
 }
-.section2-resultsearch{
+.section2-resultsearch {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width:70%;
+  width: 70%;
   margin: auto;
-  padding-top: 50px;
- 
-}
-.section2-resultsearch h1{
+  padding-top: 50px;}
+
+.section2-resultsearch h1 {
   font-size: 35px;
   align-self: self-start;
   padding-left: 150px;
+}
+.card-container1 {
+  border-top: 2px solid rgb(248, 245, 245);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 70px;
+  padding: 50px 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 100px 50px 100px;
+}
+.card {
+  position: relative;
+  width: 220px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.205);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.card::before,
+.card::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: var(--card-blue);
+
+  transition: all 0.5s;
+}
+
+.card::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.card::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 15px;
+}
+
+.card:hover::before,
+.card:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+  background-color: rgb(65, 90, 119, 0.6);
+}
+
+.card:hover:after {
+  content: attr(data-hover-text);
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.head-search {
+  background-color: var(--nav-dark);
+  height: 40vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 70px;
+  align-items: center;
+  padding-top: 100px;
+}
+.movieimg {
+  width: 450px;
+}
+.head-search h1 {
+  font-size: 60px;
+}
+.head-search h3 {
+  font-size: 30px;
+}
+.section2-resultsearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  padding-top: 50px;
+}
+.section2-resultsearch h1 {
+  font-size: 35px;
+  align-self: self-start;
+  padding-left: 120px;
+}
+.card-container1 {
+  border-top: 2px solid rgb(248, 245, 245);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 70px;
+  padding: 50px 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 100px 50px 100px;
+}
+.card {
+  position: relative;
+  width: 220px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.205);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.card::before,
+.card::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: var(--card-blue);
+  transition: all 0.5s;
+}
+.card::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+.card::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 15px;
+}
+.card:hover::before,
+.card:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+  background-color: rgb(65, 90, 119, 0.6);
+}
+.card:hover:after {
+  content: attr(data-hover-text);
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+} 
+@media (max-width: 1440px) {
+  .head-search {
+    height: 40vh;
+    gap: 10px;
+    padding-top: 20px;
+  }
+  .movieimg {
+    width: 320px;
+  }
+  .head-search h1 {
+    font-size: 34px;
+  }
+  .head-search h3 {
+    font-size: 22px;
+  }
+  .section2-resultsearch h1 {
+    font-size: 30px;
+    padding-left: 20px;
+    align-self: center;
+  }
+  .card-container1 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin: 20px 50px 30px 50px;
+  }
+  .card {
+    width: 200px;
+    height: 300px;
+  }
 
 }
-.card-container1{
-  border-top: 2px solid rgb(248, 245, 245);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 70px;
-    padding: 50px 10px;
+@media (max-width: 1024px) {
+  .head-search {
+    flex-direction: column;
+    height: 50vh;
+    gap: 10px;
+    padding-top: 20px;
+  }
+  .movieimg {
+    width: 300px;
+  }
+  .head-search h1 {
+    font-size: 30px;
+  }
+  .head-search h3 {
+    font-size: 20px;
+  }
+  .section2-resultsearch h1 {
+  font-size: 32px;
+    
+  }
+  .card-container1 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin: 20px 50px 30px 50px;
+  }
+  .card {
+    width: 180px;
+    height: 280px;
+  }
+  .card::after{
+    font-size: 16px;
+  }
+  .text5{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin:20px 100px 50px 100px ;
-   
+  }
 }
-.card {
-    position: relative;
-    width: 220px;
-    height: 320px;
-    background: rgba(255, 255, 255, 0.205);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    border-radius: 15px;
-    cursor: pointer;
+@media (max-width: 768px) {
+  .head-search {
+    height: 50vh;
+    padding-top: 30px;
+    gap: 0px;
+  }
+  .movieimg {
+    width: 250px;
   }
 
-  .card::before,
-  .card::after {
-    position: absolute;
-    content: "";
-    width: 20%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: var(--card-blue);
-    
-    transition: all 0.5s;
+ 
+  .head-search h3 {
+    font-size: 18px;
   }
-  
-  .card::before {
-    top: 0;
-    right: 0;
-    border-radius: 0 15px 0 100%;
+  .section2-resultsearch h1 {
+    font-size: 28px;
+    padding-left: 0;
+    align-self: center;
   }
-  
-  .card::after {
-    bottom: 0;
-    left: 0;
-    border-radius: 0 100%  0 15px;
+  .card-container1 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 10px 20px 20px 20px;
   }
-  
-  .card:hover::before,
-  .card:hover:after {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    transition: all 0.5s;
-    background-color: rgb(65, 90, 119, 0.6);
+  .card {
+    width: 150px;
+    height: 250px;
     
   }
-  
-  .card:hover:after {
-    content:attr(data-hover-text);
-  
+}
+@media (max-width: 480px) {
+  .head-search {
+    height: auto;
+    padding-top: 20px;
   }
-  .card img{
+  .movieimg {
+    width: 250px;
+  }
+  .head-search h1 {
+    font-size: 30px;
+  }
+  .head-search h3 {
+    font-size: 18px;
+  }
+  .section2-resultsearch h1 {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .card-container1 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 10px;
+  }
+  .card {
     width: 100%;
-    height: 100%;
-    border-radius: 15px;
+    height: auto;
   }
-  
+}

@@ -1,12 +1,14 @@
 .slider-container3{
+
     padding: 40px 13%;
     background-color: rgba(13, 27, 42, 0.6);
     margin: 20px 70px;
     border-radius: 25px;
     margin-bottom: 80px;
   }
-  
+
   .trailercard{
+   background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 180px;
@@ -15,7 +17,7 @@
     margin: 15px;
     opacity: 90%;
     border-radius: 15px;
-   
+   text-align: center;
   }
   .htrailermovie2 {
     width: 100%;
@@ -50,4 +52,84 @@
     opacity: 90%;
     width: 100%;
     height: 100%;
+  }
+  .card7{
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  @media (max-width:1700px){
+    .slider-container3{
+      padding: 30px 10%;
+      margin: 30px;
+      margin-bottom: 50px;   
+    }
+    
+    .trailercard{
+      height: 150px;
+      width: 300px;
+     
+    }
+    .htrailermovie2 {
+     
+      font-size: 16px;
+     
+    }
+    
+    .hmainpopmovie{
+       
+        font-size: 34px;
+      
+    }
+    
+    .slider-container3 .slick-arrow , .slider-container3 .slick-next{
+
+       margin:0 -100px;
+        
+    }
+   
+   
+  }
+  @media (max-width:1440px){
+    .slider-container3{
+      padding: 20px 10%;
+      margin: 20px;
+      margin-bottom: 40px;   
+    }
+    .trailercard{
+      height: 150px;
+      width: 280px;
+     
+    }
+    .htrailermovie2 {
+     
+      font-size: 16px;
+     
+    }
+    
+    .hmainpopmovie{
+       
+        font-size: 34px;
+      
+    }
+    
+    .slider-container3 .slick-arrow , .slider-container3 .slick-next{
+
+       margin:0 -100px;
+        
+    }
+
+  }
+  @media (max-width: 1024px) {
+  
+  }
+  @media (max-width: 768px) {
+    .slider-container3 .slick-arrow , .slider-container3 .slick-next{
+      
+     margin:0 -30px;
+      
+  }
+   
   }

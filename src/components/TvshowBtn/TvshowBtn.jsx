@@ -1,10 +1,13 @@
-import Button from "@mui/material/Button";
+import{ useMediaQuery, useTheme, Button } from "@mui/material";
 import "./TvshowBtn.css";
 import { useState } from "react";
 
 
 export function TvshowBtn({ setCategory }) {
   const [activeCategory, setActiveCategory] = useState("popular");
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const TvshowBtnName = [
     "popular", "on TV",  "top_rated" , "Airing Today"
@@ -32,8 +35,10 @@ export function TvshowBtn({ setCategory }) {
                 : "primary.main",
             backgroundColor:
             activeCategory === name ? "primary.main" : "transparent",
-            width: "170px",
+           width: isSmallScreen ? "80px" : isMediumScreen ? "120px" : "170px",
+            fontSize: isSmallScreen ? "10px" : isMediumScreen ? "12px" : "14px",
             borderRadius: "25px",
+            textWrap:"nowrap",
             transition: "0.5s",
             "&:hover": {
               backgroundColor: "primary.main",

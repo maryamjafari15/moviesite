@@ -6,11 +6,26 @@ import { Loading } from "../Loading/Loading";
 import { Error } from "../ErrorComponent/ErrorComponent";
 import { Hero } from "../Hero/Hero";
 import mobileIMG from "../../assets/mobileIMG.png";
+import { SearchBox } from "../SearchBox/SearchBox";
+import { useNavigate } from "react-router-dom";
 
 export function Background() {
   const [slidesData, setSlidesData] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setHasError] = useState(false);
+
+  const [query, setQuery] = useState("");    
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!query.trim()) {
+      alert("Please enter a movie, TV show, or person...");
+      return;
+    }
+    navigate(`/SearchResult/${encodeURIComponent(query)}`); 
+    setQuery(""); 
+  };
 
   const settings = {
     dots: true,
@@ -51,7 +66,16 @@ export function Background() {
             <br />
             where every scene tells a story.
           </h3>
+          <div className="search-box2">
+          <SearchBox
+            query={query}
+            setQuery={setQuery}
+            handleSearch={handleSearch}
+            
+          />
         </div>
+        </div>
+       
       </div>
       <div className='header-slider'>
         {loading ? <Loading /> : null}

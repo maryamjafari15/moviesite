@@ -9,6 +9,9 @@
   --blue-logo: #416eb8;
   
 }
+body.menu-open {
+  overflow: hidden;
+}
 
 body {
   scrollbar-width: thin;

@@ -3,8 +3,8 @@ import "./Pagination.css";
 export function Pagination({ totalPages, paginate, currentPage }) {
   function getPageNumber() {
     const pageNumbers = [];
-    const startFrom = Math.max(1, currentPage - 5);
-    const end = Math.min(totalPages, currentPage + 5);
+    const startFrom = Math.max(1, currentPage - 4);
+    const end = Math.min(totalPages, currentPage + 4);
 
     for (let i = startFrom; i <= end; i++) {
       pageNumbers.push(i);

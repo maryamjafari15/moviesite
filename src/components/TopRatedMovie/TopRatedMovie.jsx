@@ -14,12 +14,10 @@ export function TopRatedMovie() {
   const navigate = useNavigate();
   const routeChange = (movie, mediaType) => {
     let encodedTitle = encodeURIComponent(movie.title || movie.name);
-    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${
-      movie.id
-    }}`;
+    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${movie.id}}`;
     navigate(path);
   };
-  
+
   const settings = {
     dots: false,
     infinite: false,
@@ -29,12 +27,26 @@ export function TopRatedMovie() {
     initialSlide: 0,
     responsive: [
       {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
-          dots: true,
         },
       },
       {

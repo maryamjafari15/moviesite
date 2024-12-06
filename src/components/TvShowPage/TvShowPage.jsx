@@ -141,7 +141,7 @@ export function TvShowPage() {
         </div>
       </div>
 
-      <div className='flex'>
+      <div className='moviePageContainer2'>
         <MoviePageSide
           setSelectedGenre={setSelectedGenre}
           setMinDate={setMinDate}

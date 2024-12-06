@@ -15,4 +15,22 @@
    margin-top: 25px;
     margin-bottom: 30px;
   }
-
+ 
+  @media (max-width:1024px){
+    .MoviePageSide{
+      margin: 10px;
+      padding: 10px;
+      border-radius: 15px;
+      height: fit-content;
+     
+    }
+    .MoviePageSide>h2{
+      font-size: 14px;
+     margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    .dateh2{
+      display: none;
+    }
+  }
+  
