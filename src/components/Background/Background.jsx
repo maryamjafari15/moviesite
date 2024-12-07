@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./background.css";
+import "./Background.css";
 import Slider from "react-slick";
 import { DiscoverMovieRequest } from "../../data/genre&movie";
 import { Loading } from "../Loading/Loading";
