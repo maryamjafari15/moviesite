@@ -148,7 +148,7 @@ export function DiscoverMovie() {
       
   };
 
-  console.log("Movie Data:", data);
+  // console.log("Movie Data:", data);
 
   return (
     <div className='movies'>
