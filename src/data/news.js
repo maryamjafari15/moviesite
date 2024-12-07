@@ -18,7 +18,7 @@ export async function NewsMovie() {
 
   } catch (error) {
     console.error('Error fetching news:', error);
-    return null; 
+    return[]; 
   }
 
   
