@@ -54,7 +54,7 @@ export function MainSectionDetailsMovie(props) {
   const actors = data.credits?.cast
   .filter(actor => actor.profile_path !== null)
   .slice(0, 6);
-  console.log(actors)
+  // console.log(actors)
 
   const keywords = data?.keywords?.keywords
   ? data.keywords.keywords.map((keyword) => keyword.name).slice(0, 7).join(", ")

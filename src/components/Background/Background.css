@@ -99,10 +99,10 @@
 
 @media (max-width: 1024px) {
   .header-slider{
-    height: 60vh!important;
+    height: 50vh!important;
   }
   .slide {
-    height: 60vh;
+    height:50vh;
   }
 }
 
@@ -137,10 +137,7 @@
   .head-mobile h3{
     font-size: 16px;
   }
- .search-box2{
-  
-  
- }
+
 }
 @media (max-width: 580px) {
   .head-mobile img {
