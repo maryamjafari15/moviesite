@@ -1,4 +1,4 @@
-import "./Pagination.css";
+import "./pagination.css";
 
 export function Pagination({ totalPages, paginate, currentPage }) {
   function getPageNumber() {
