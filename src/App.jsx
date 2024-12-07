@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Home } from "./pages/Home";
 import { News } from "./pages/News";
 import { TvShows} from "./pages/TvShows";
-import { Movies} from "./pages/movies.jsx" ;
+import { Movies} from "./pages/Movies.jsx" ;
 import {SearchResult} from "./pages/SearchResult.jsx" ;
 import {MovieDetails} from "./pages/MovieDetails.jsx" ;
 import { PeopleDetails } from "./pages/PeopleDetails.jsx";
