@@ -1,11 +1,36 @@
-import { AccessTokenAuth, BASE_URL } from "./constants.js";
+import { AccessTokenAuth, BASE_URL } from "./constants.js"; 
+
+
+export async function getNowPlayingDates() {
+  const response = await fetch(`${BASE_URL}/movie/now_playing?language=en-US&page=1`, {
+    headers: {
+      accept: "application/json",
+      Authorization: AccessTokenAuth,
+    },
+  });
+
+  const data = await response.json();
+  return data.dates; 
+}
+export async function getupcomingDates() {
+  const response = await fetch(`${BASE_URL}/movie/upcoming?language=en-US&page=1`, {
+    headers: {
+      accept: "application/json",
+      Authorization: AccessTokenAuth,
+    },
+  });
+
+  const data = await response.json();
+  return data.dates; 
+}
 
 export async function MoviesByCategoryRequest(
   category = "popular",
   currentPage = 1,
   selectedGenre = "",
   minDate = "",
-  maxDate = ""
+  maxDate = "",
+  signal = null
 ) {
   const genreQuery = selectedGenre ? `&with_genres=${selectedGenre}` : "";
   const dateQuery =
@@ -19,7 +44,7 @@ export async function MoviesByCategoryRequest(
   } else if (category === "now_playing") {
     EndPointMovie  += `&sort_by=popularity.desc&with_release_type=2|3`;
   }else if (category=== "top_rated") {
-    EndPointMovie += "&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200";
+    EndPointMovie += `&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200`;
   }else if(category==="upcoming") {
     EndPointMovie +="&sort_by=popularity.desc&with_release_type=2|3"
     
@@ -31,6 +56,7 @@ export async function MoviesByCategoryRequest(
       accept: "application/json",
       Authorization: AccessTokenAuth,
     },
+    signal,
   });
   
 

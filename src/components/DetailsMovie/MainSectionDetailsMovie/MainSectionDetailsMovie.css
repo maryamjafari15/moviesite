@@ -203,6 +203,9 @@
   .actor-card2 > h3 {
     font-size: 9px;
   }
+  .mb-6 > h3 {
+    font-size: 10px;
+  }
 }
 @media (max-width: 480px) {
   .main-container2 {

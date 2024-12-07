@@ -127,5 +127,9 @@ margin:0 auto;
   .search-box {
  display: none;
   }
-
+  .logoheader {
+    width: 60px;
+    padding: 5px;
+    padding-left: 10px;
+  }
 }

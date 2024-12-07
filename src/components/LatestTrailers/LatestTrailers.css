@@ -122,14 +122,3 @@
     }
 
   }
-  @media (max-width: 1024px) {
-  
-  }
-  @media (max-width: 768px) {
-    .slider-container3 .slick-arrow , .slider-container3 .slick-next{
-      
-     margin:0 -30px;
-      
-  }
-   
-  }

@@ -17,11 +17,12 @@ export async function TvShowByCategoryRequest(
   if (category === "popular") {
     EndPointMovie2  += "&sort_by=popularity.desc";
   } else if (category === "on TV") {
-    EndPointMovie2  += `&sort_by=popularity.desc`;
+    EndPointMovie2  += `&sort_by=popularity.desc&with_type=2|3`;
   }else if (category=== "top_rated") {
     EndPointMovie2 += "&sort_by=vote_average.desc&vote_count.gte=200";
   }else if(category==="Airing Today") {
-    EndPointMovie2 +="&sort_by=popularity.desc"
+    const today = new Date().toISOString().split("T")[0];
+    EndPointMovie2 +=`&sort_by=popularity.desc&air_date.lte=${today}&air_date.gte=${today}`
   }
 
 

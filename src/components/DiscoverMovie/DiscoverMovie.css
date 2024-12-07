@@ -145,11 +145,16 @@
     }
     .movie-grid {
         grid-template-columns: repeat(2, 1fr);
-        margin: 10px 20px;
+        margin: 5px 5px;
+        gap: 0px;
     }
 
     .movie-card {
         margin-bottom: 40px;
+    }
+    .movie-card:hover{
+        opacity: 100%;
+        transform: translateY(0px);
     }
 
     .movie-card img {

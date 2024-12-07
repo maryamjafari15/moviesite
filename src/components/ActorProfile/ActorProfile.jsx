@@ -80,8 +80,8 @@ export function ActorProfile(props) {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: Math.min(moviesData.length, 3),
-          slidesToScroll: Math.min(moviesData.length, 3),
+          slidesToShow: Math.min(moviesData.length, 2),
+          slidesToScroll: Math.min(moviesData.length, 2),
         },
       },
     ],

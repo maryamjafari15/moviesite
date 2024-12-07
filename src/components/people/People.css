@@ -15,7 +15,8 @@
     text-align: center;
     color: white;
     flex-direction: column;
-
+align-items: center;
+justify-content: center;
   }
   
   .actor-card img {
@@ -56,9 +57,10 @@
   
   @media (max-width: 768px) {
     .people-con {
-      gap: 10px;
-      grid-template-columns: repeat(2, 1fr);
-      width: 90%;
+      gap: 5px;
+      grid-template-columns: repeat(3, 1fr);
+      width: 80%;
+      padding: 0%;
     }
    
     .actor-card {
@@ -67,10 +69,17 @@
   
     .profilepeople {
       height: 160px;
+     
     }
   
+  
     .actor-card h3 {
-      font-size: 0.85rem;
+      font-size: 8px;
+    }
+    .actor-card img{
+      width: 50px;
+      height: 50px;
+      margin: 0%;
     }
   }
   
@@ -85,8 +94,6 @@
       height: 120px;
     }
   
-    .actor-card h3 {
-      font-size: 0.6rem;
-    }
+   
   }
   

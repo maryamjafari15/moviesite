@@ -14,7 +14,7 @@ export function Background() {
   const [loading, setloading] = useState(true);
   const [error, setHasError] = useState(false);
 
-  const [query, setQuery] = useState("");    
+  const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -23,8 +23,8 @@ export function Background() {
       alert("Please enter a movie, TV show, or person...");
       return;
     }
-    navigate(`/SearchResult/${encodeURIComponent(query)}`); 
-    setQuery(""); 
+    navigate(`/SearchResult/${encodeURIComponent(query)}`);
+    setQuery("");
   };
 
   const settings = {
@@ -57,25 +57,26 @@ export function Background() {
 
   return (
     <>
-      <div className='head-mobile'>
-        <img src={mobileIMG} alt='movie' className='headmobileimg' />
-        <div>
-          <h1>Wellcome!</h1>
-          <h3>
-          A journey of emotions,
-            <br />
-            where every scene tells a story.
-          </h3>
-          <div className="search-box2">
-          <SearchBox
-            query={query}
-            setQuery={setQuery}
-            handleSearch={handleSearch}
-            
-          />
+      <div className="head-mobile-main">
+        <div className='head-mobile'>
+          <img src={mobileIMG} alt='movie' className='headmobileimg' />
+          <div>
+            <h1>Wellcome!</h1>
+            <h3>
+              A journey of emotions,
+              <br />
+              where every scene tells a story.
+            </h3>
+          </div>
+          
         </div>
-        </div>
-       
+        <div className='search-box2'>
+            <SearchBox
+              query={query}
+              setQuery={setQuery}
+              handleSearch={handleSearch}
+            />
+          </div>
       </div>
       <div className='header-slider'>
         {loading ? <Loading /> : null}

@@ -115,10 +115,10 @@
 }
 @media (max-width: 1024px) {
   .container-moviedetail {
-    height: 60vh;
+    height: 50vh;
   }
   .section1-md {
-    margin-left: 5%;
+    margin-left: 30px;
   }
   .container-moviedetail h1 {
     font-size: 28px;
@@ -138,9 +138,12 @@
 @media (max-width: 768px) {
   .container-moviedetail {
     flex-direction: column;
-    height: 80vh;
+    height: 60vh;
     justify-content: center;
     align-items: center;
+  }
+  .section1-md {
+    margin-left: 0;
   }
   .section1-md {
     margin-top: 80px;
@@ -167,6 +170,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .rating-part button {
+    font-size: 12px;
+    width: 100px;
+    margin-bottom: 10px;
   }
 }
 @media (max-width: 480px) {

@@ -196,6 +196,12 @@
     width: 120px;
     height: 180px;
   }
+  .sec1-people3 {
+margin-top: 10px;
+  }
+  .sec1-people2-1 h2{
+    padding-bottom: 10px;
+  }
 }
 @media (max-width: 768px) {
 
@@ -210,6 +216,13 @@
     margin-top: -100px;
     width: 100%;
   }
+  .sec1-people2 {
+
+    width: 85%;
+  }
+  .peopledetailcard{
+    width: 100%;
+  }
   .titlepeople {
     width: 100%;
     padding-left: 20px;
@@ -221,16 +234,15 @@
     
   }
   .imageofstar2{
-    width: 100px;
+    width: 80px;
   }
   .imgpeople2 {
     margin-top: 20px;
   }
-  .peopledetailcard {
-    grid-template-columns: 1fr;
-  }
+ 
   .sec1-people3 h2 {
     font-size: 30px;
+    padding-bottom: 20px;
   }
   .popcard4 {
     width: 100px;
@@ -243,9 +255,14 @@
     text-align: start;
   }
   .sec1-people2-1 {
-    flex: 3;
+    flex: 5;
   }
   .sec1-people2-2 {
-    flex: 1;
+    flex: 3;
+  }
+}
+@media (max-width: 500px){
+  .sec1-people2-2{
+    display: none;
   }
 }

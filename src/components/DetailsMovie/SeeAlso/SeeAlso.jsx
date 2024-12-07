@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 export function SeeAlso(props) {
   const result = props.similarMovies;
 
-  // console.log(result)
+  console.log(result)
 
   const navigate = useNavigate();
   const routeChange = (movie, mediaType) => {
     let encodedTitle = encodeURIComponent(movie.title || movie.name);
-    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${movie.id}}`;
+    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${movie.movieID}`;
     navigate(path);
   };
 

@@ -93,7 +93,7 @@
   right: 10px;
 }
 
-.head-mobile {
+.head-mobile-main {
     display: none;
 }
 
@@ -110,28 +110,35 @@
   .header-slider {
     display: none;
   }
+  .head-mobile-main{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    background-color: var(--nav-dark);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
   .head-mobile {
     display: flex;
-    background-color: var(--nav-dark);
-    height: 50vh; 
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 2%;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 60px;
   }
   .head-mobile img {
-    width: 250px;
+    width: 240px;
   }
   .head-mobile h1{
-    font-size: 30px;
+    font-size: 24px;
   }
   .head-mobile h3{
-    font-size: 20px;
+    font-size: 16px;
   }
  .search-box2{
-  margin-top: 20px;
+  
   
  }
 }

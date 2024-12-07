@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { MoviesByCategoryRequest } from "../../data/MovieCategory";
+import {
+  MoviesByCategoryRequest,
+  getNowPlayingDates,
+  getupcomingDates,
+} from "../../data/MovieCategory";
 import { Error } from "../ErrorComponent/ErrorComponent";
 import { MovieBtn } from "../MovieBtn/MovieBtn";
 import { useNavigate } from "react-router-dom";
@@ -19,9 +23,6 @@ export function MoviePage() {
   const [minDate, setMinDate] = useState("");
   const [maxDate, setMaxDate] = useState("");
   const [totalPages, setTotalPages] = useState(1);
-  // const[Date , setDate]=useState("")
-
-  // console.log(Date)
 
   const Genres = [
     {
@@ -104,13 +105,12 @@ export function MoviePage() {
   const navigate = useNavigate();
   const routeChange = (movie, mediaType) => {
     let encodedTitle = encodeURIComponent(movie.title || movie.name);
-    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${
-      movie.id
-    }}`;
+    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${movie.id}}`;
     navigate(path);
   };
 
   useEffect(() => {
+    let abortController = new AbortController();
     async function getdata() {
       setLoading(true);
       setError(false);
@@ -120,21 +120,52 @@ export function MoviePage() {
           currentPage,
           selectedGenre,
           minDate,
-          maxDate
+          maxDate,
+          abortController.signal
         );
         setMovies(movies.results);
         setTotalPages(movies.total_pages);
-        // setDate(movies.dates);
-        
       } catch {
-        setError(true);
+        if (err.name !== "AbortError") {
+          setError(true);
+        }
       } finally {
         setLoading(false);
       }
     }
 
     getdata();
+    return () => {
+      abortController.abort();
+    };
   }, [category, currentPage, selectedGenre, minDate, maxDate]);
+
+  useEffect(() => {
+    async function fetchDates() {
+      if (category === "now_playing") {
+        try {
+          const { minimum, maximum } = await getNowPlayingDates();
+          setMinDate(minimum);
+          setMaxDate(maximum);
+        } catch {
+          console.error("Failed to fetch now playing dates");
+        }
+      } else if (category === "upcoming") {
+        try {
+          const { minimum, maximum } = await getupcomingDates();
+          setMinDate(minimum);
+          setMaxDate(maximum);
+        } catch {
+          console.error("Failed to fetch now playing dates");
+        }
+      } else {
+        setMinDate("");
+        setMaxDate("");
+      }
+    }
+
+    fetchDates();
+  }, [category]);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -167,9 +198,8 @@ export function MoviePage() {
         />
 
         <div className='movies2'>
-        {loading ? <div className="discoverLoading"> loading... </div> : null}
+          {loading ? <div className='discoverLoading'> loading... </div> : null}
           <div className='movie-grid2'>
-            
             {movies?.map((movie) => (
               <div
                 className='movie-card2'
@@ -199,8 +229,8 @@ export function MoviePage() {
               </div>
             ))}
           </div>
-          {loading ? <div className="discoverLoading"> loading... </div> : null}
-            {error ? <Error /> : null}
+          {loading ? <div className='discoverLoading'> loading... </div> : null}
+          {error ? <Error /> : null}
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
