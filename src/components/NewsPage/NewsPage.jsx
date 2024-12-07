@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NewsMovie } from "../../data/news";
+import { NewsMovie } from "../../data/Gnews.js";
 import newsimg from "../../assets/newsimg.png";
 import "./NewsPage.css";
 import { Error } from "../ErrorComponent/ErrorComponent";
@@ -25,6 +25,7 @@ export function NewsPage() {
     }
     getdata();
   }, []);
+  console.log(news);
 
   return (
     <>
@@ -43,23 +44,19 @@ export function NewsPage() {
         <h1 className='newsh1'>News</h1>
         <hr />
         <div className='card3-grid'>
-         
-          {news
-            .filter(
-              (item) => item.urlToImage && !item.urlToImage.endsWith(".webp")
-            )
-            .slice(0, 30)
-            .map((news) => (
-              <div className='card3' key={news.id}>
+          {news.slice(0,9).map((news , index) => (
+              <div className='card3' key={index}>
                 <img
                   src={
-                    news.urlToImage
-                      ? news.urlToImage
+                    news.image
+                      ? news.image
                       : "https://via.placeholder.com/300"
                   }
                   alt='news'
                   className='card3-image'
-                  onError={(e) => { e.target.src = defaultImage; }}
+                  onError={(e) => {
+                    e.target.src = defaultImage;
+                  }}
                 />
                 <div className='card3-content'>
                   <div className='card3-date'>
@@ -68,7 +65,7 @@ export function NewsPage() {
                       : "Unknown date"}{" "}
                   </div>
                   <div className='card3-author'>
-                    {news.author || "Unknown Author"}
+                    {news.source.name || "Unknown Author"}
                   </div>
                   <h3 className='card3-title'>{news.title || "No title"}</h3>
 
@@ -83,10 +80,9 @@ export function NewsPage() {
                 </div>
               </div>
             ))}
-            
         </div>
-        {loading ? <div className="discoverLoading2"> loading...</div> : null}
-          {error ? <Error /> : null}
+        {loading ? <div className='discoverLoading2'> loading...</div> : null}
+        {error ? <Error /> : null}
       </div>
     </>
   );
