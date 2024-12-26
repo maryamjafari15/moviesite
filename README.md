@@ -3,6 +3,13 @@
 A modern, fully responsive web application built with **React**, allowing users to browse, search, and explore movies and TV shows. This project is seamlessly deployed on **Vercel** to ensure fast and reliable performance.
 
 ---
+## **Preview**
+
+Here’s a preview of the application:
+
+![App Screenshot](src/assets/screenshot1.JPG)
+
+---
 
 ## 🌟 Features
 
