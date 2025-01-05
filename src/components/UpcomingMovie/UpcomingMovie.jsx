@@ -47,6 +47,7 @@ export function UpcomingMovie() {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
+          arrows: false,
         },
       },
       {
@@ -55,6 +56,7 @@ export function UpcomingMovie() {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          arrows: false,
         },
       },
       {
@@ -62,6 +64,7 @@ export function UpcomingMovie() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          arrows: false,
         },
       },
     ],
