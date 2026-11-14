@@ -7,25 +7,27 @@ import defaultImage from "../../assets/default-image.png";
 
 export function NewsPage() {
   const [news, setNews] = useState([]);
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setHasError] = useState(false);
 
   useEffect(() => {
-    async function getdata() {
-      setloading(true);
+    async function getData() {
+      setLoading(true);
       setHasError(false);
+
       try {
-        const news = await NewsMovie();
-        setNews(news);
-      } catch {
+        const articles = await NewsMovie();
+        setNews(articles);
+      } catch (error) {
+        console.error("Failed to load news:", error);
         setHasError(true);
       } finally {
-        setloading(false);
+        setLoading(false);
       }
     }
-    getdata();
+
+    getData();
   }, []);
-  console.log(news);
 
   return (
     <>
@@ -40,49 +42,57 @@ export function NewsPage() {
           </h3>
         </div>
       </div>
+
       <div className='section2-newspage'>
         <h1 className='newsh1'>News</h1>
         <hr />
-        <div className='card3-grid'>
-          {news.slice(0,9).map((news , index) => (
-              <div className='card3' key={index}>
-                <img
-                  src={
-                    news.image
-                      ? news.image
-                      : "https://via.placeholder.com/300"
-                  }
-                  alt='news'
-                  className='card3-image'
-                  onError={(e) => {
-                    e.target.src = defaultImage;
-                  }}
-                />
-                <div className='card3-content'>
-                  <div className='card3-date'>
-                    {news.publishedAt
-                      ? new Date(news.publishedAt).toLocaleDateString()
-                      : "Unknown date"}{" "}
-                  </div>
-                  <div className='card3-author'>
-                    {news.source.name || "Unknown Author"}
-                  </div>
-                  <h3 className='card3-title'>{news.title || "No title"}</h3>
 
-                  <a
-                    href={news.url || "#"}
-                    className='card3-link'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    READ MORE...
-                  </a>
+        <div className='card3-grid'>
+          {news.slice(0, 9).map((article, index) => (
+            <div className='card3' key={article.article_id || index}>
+              <img
+                src={article.image_url || defaultImage}
+                alt={article.title || "News"}
+                className='card3-image'
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = defaultImage;
+                }}
+              />
+
+              <div className='card3-content'>
+                <div className='card3-date'>
+                  {article.pubDate
+                    ? new Date(article.pubDate).toLocaleDateString()
+                    : "Unknown date"}
                 </div>
+
+                <div className='card3-author'>
+                  {article.source_name || "Unknown Source"}
+                </div>
+
+                <h3 className='card3-title'>{article.title || "No title"}</h3>
+
+                <a
+                  href={article.link || "#"}
+                  className='card3-link'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  READ MORE...
+                </a>
               </div>
-            ))}
+            </div>
+          ))}
         </div>
-        {loading ? <div className='discoverLoading2'> loading...</div> : null}
-        {error ? <Error /> : null}
+
+        {loading && <div className='discoverLoading2'>loading...</div>}
+
+        {error && <Error />}
+
+        {!loading && !error && news.length === 0 && (
+          <p>No news available right now.</p>
+        )}
       </div>
     </>
   );
