@@ -12,15 +12,13 @@ export function Hero(props) {
 
   const routeChange = (mediaType, title, id) => {
     let encodedTitle = encodeURIComponent(title);
-    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${id}}`;
+    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${id}`;
     navigate(path);
   };
 
-
-    const theme = useTheme();
-    const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
-    const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
- 
+  const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <motion.div
@@ -38,8 +36,12 @@ export function Hero(props) {
           onClick={() => routeChange("movie", title, id)}
           sx={{
             borderRadius: "25px",
-            padding: isMediumScreen ? "6px" : isLargeScreen ? "8px": "16px",
-            fontSize: isMediumScreen ? "0.5rem" : isLargeScreen ? "0.7rem" : "1rem",
+            padding: isMediumScreen ? "6px" : isLargeScreen ? "8px" : "16px",
+            fontSize: isMediumScreen
+              ? "0.5rem"
+              : isLargeScreen
+                ? "0.7rem"
+                : "1rem",
           }}
           variant='extended'
           size={isLargeScreen ? "small" : "medium"}
@@ -47,7 +49,11 @@ export function Hero(props) {
         >
           Watch Now
         </Fab>
-        <Fab   size={isLargeScreen ? "small" : "medium"} color='primary' aria-label='add'>
+        <Fab
+          size={isLargeScreen ? "small" : "medium"}
+          color='primary'
+          aria-label='add'
+        >
           <LikeButton />
         </Fab>
       </div>
