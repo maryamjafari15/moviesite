@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { LikeButton } from "./LikedButton";
 import { useTheme, useMediaQuery } from "@mui/material";
+import PropTypes from "prop-types";
 
 export function Hero(props) {
   const { title, overview, id } = props.data;
@@ -60,3 +61,10 @@ export function Hero(props) {
     </motion.div>
   );
 }
+Hero.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }).isRequired,
+};

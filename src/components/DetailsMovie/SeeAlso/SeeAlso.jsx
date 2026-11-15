@@ -1,5 +1,6 @@
 import "./SeeAlso.css";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export function SeeAlso(props) {
   const result = props.similarMovies;
@@ -41,3 +42,15 @@ export function SeeAlso(props) {
     </div>
   );
 }
+SeeAlso.propTypes = {
+  similarMovies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      poster: PropTypes.string,
+      movieID: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]),
+    })
+  ),
+};

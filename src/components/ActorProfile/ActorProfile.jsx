@@ -5,6 +5,7 @@ import { Error } from "../ErrorComponent/ErrorComponent.jsx";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import defaultImage from "../../assets/default-image.png";
+import PropTypes from "prop-types";
 
 export function ActorProfile(props) {
   const results = props.peopleID;
@@ -169,7 +170,7 @@ export function ActorProfile(props) {
                       }}
                       className='popcard4'
                     >
-                      <div class='overlay'>
+                      <div className='overlay'>
                         <span className='spanmovie'>
                           {movies.title || movies.name}
                         </span>
@@ -189,3 +190,9 @@ export function ActorProfile(props) {
     </>
   );
 }
+ActorProfile.propTypes = {
+  peopleID: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+};

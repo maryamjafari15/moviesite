@@ -105,7 +105,7 @@ export function MoviePage() {
   const navigate = useNavigate();
   const routeChange = (movie, mediaType) => {
     let encodedTitle = encodeURIComponent(movie.title || movie.name);
-    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${movie.id}}`;
+    let path = `/MovieDetails/${mediaType}/${encodedTitle}/${movie.id}`;
     navigate(path);
   };
 
@@ -121,11 +121,11 @@ export function MoviePage() {
           selectedGenre,
           minDate,
           maxDate,
-          abortController.signal
+          abortController.signal,
         );
         setMovies(movies.results);
         setTotalPages(movies.total_pages);
-      } catch (err){
+      } catch (err) {
         if (err.name !== "AbortError") {
           setError(true);
         }

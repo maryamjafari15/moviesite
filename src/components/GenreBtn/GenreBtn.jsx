@@ -1,6 +1,7 @@
 import { useMediaQuery, useTheme, Button } from "@mui/material";
 import "./GenreBtn.css";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export function GenreBtn({ setSelectedGenre }) {
   const [activeGenre, setActiveGenre] = useState("");
@@ -72,7 +73,7 @@ export function GenreBtn({ setSelectedGenre }) {
           backgroundColor: activeGenre === "" ? "primary.main" : "transparent",
           borderRadius: "25px",
           width: isSmallScreen ? "100px" : isMediumScreen ? "120px" : "150px",
-          
+
           transition: "0.5s",
           "&:hover": {
             backgroundColor: "primary.main",
@@ -85,3 +86,6 @@ export function GenreBtn({ setSelectedGenre }) {
     </div>
   );
 }
+GenreBtn.propTypes = {
+  setSelectedGenre: PropTypes.func.isRequired,
+};

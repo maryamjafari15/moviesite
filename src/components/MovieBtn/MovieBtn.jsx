@@ -1,7 +1,7 @@
 import { useMediaQuery, useTheme, Button } from "@mui/material";
 import "./MovieBtn.css";
 import { useState } from "react";
-
+import PropTypes from "prop-types";
 
 export function MovieBtn({ setCategory }) {
   const [activeCategory, setActiveCategory] = useState("popular");
@@ -9,19 +9,15 @@ export function MovieBtn({ setCategory }) {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-  const MovieBtnName = [
-    "popular", "now_playing",  "top_rated" , "upcoming"
-
-    ]
- const handleButtonClick = (name) => {
-  setActiveCategory(name);
+  const MovieBtnName = ["popular", "now_playing", "top_rated", "upcoming"];
+  const handleButtonClick = (name) => {
+    setActiveCategory(name);
     setCategory(name);
   };
-  
 
   return (
     <div className='containergenres'>
-      {MovieBtnName?.map((name , index) => (
+      {MovieBtnName?.map((name, index) => (
         <Button
           onClick={() => {
             handleButtonClick(name);
@@ -30,11 +26,9 @@ export function MovieBtn({ setCategory }) {
           variant='outlined'
           sx={{
             color:
-            activeCategory === name
-                ? "primary.contrastText"
-                : "primary.main",
+              activeCategory === name ? "primary.contrastText" : "primary.main",
             backgroundColor:
-            activeCategory === name ? "primary.main" : "transparent",
+              activeCategory === name ? "primary.main" : "transparent",
             width: isSmallScreen ? "80px" : isMediumScreen ? "120px" : "170px",
             fontSize: isSmallScreen ? "10px" : isMediumScreen ? "12px" : "14px",
             borderRadius: "25px",
@@ -48,8 +42,9 @@ export function MovieBtn({ setCategory }) {
           {name}
         </Button>
       ))}
-    
-     
     </div>
   );
 }
+MovieBtn.propTypes = {
+  setCategory: PropTypes.func.isRequired,
+};

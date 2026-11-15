@@ -105,7 +105,7 @@ export function TopRatedMovie() {
                 }}
                 className='popcard'
               >
-                <div class='overlay'>
+                <div className='overlay'>
                   <span className='spanmovie'>{movies.title}</span>
                 </div>
               </div>

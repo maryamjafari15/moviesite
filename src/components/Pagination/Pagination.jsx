@@ -1,4 +1,5 @@
 import "./pagination.css";
+import PropTypes from "prop-types";
 
 export function Pagination({ totalPages, paginate, currentPage }) {
   function getPageNumber() {
@@ -69,3 +70,8 @@ export function Pagination({ totalPages, paginate, currentPage }) {
     </div>
   );
 }
+Pagination.propTypes = {
+  totalPages: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+};

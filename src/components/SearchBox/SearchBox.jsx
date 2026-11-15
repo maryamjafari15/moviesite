@@ -1,5 +1,6 @@
 import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import PropTypes from "prop-types";
 
 export function SearchBox({
   query,
@@ -70,3 +71,9 @@ export function SearchBox({
     </form>
   );
 }
+SearchBox.propTypes = {
+  query: PropTypes.string.isRequired,
+  setQuery: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  isBelowLargeScreen: PropTypes.bool.isRequired,
+};

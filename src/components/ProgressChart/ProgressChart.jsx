@@ -1,11 +1,12 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import PropTypes from "prop-types";
 
 export function ProgressChart(props) {
   const { percentage, text } = props;
   return (
     <>
-      <div style={{ width: '50px', height: '50px' }}>
+      <div style={{ width: "50px", height: "50px" }}>
         <CircularProgressbar
           value={percentage}
           text={text}
@@ -19,3 +20,7 @@ export function ProgressChart(props) {
     </>
   );
 }
+ProgressChart.propTypes = {
+  percentage: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+};

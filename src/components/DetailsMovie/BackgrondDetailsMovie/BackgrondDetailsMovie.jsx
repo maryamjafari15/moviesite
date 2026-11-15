@@ -1,57 +1,76 @@
 import "./BackgrondDetailsMovie.css";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import numeral from "numeral";
+import PropTypes from "prop-types";
 
 export function BackgrondDetailsMovie(props) {
   const result = props.data;
-const result2 =props.url;
-const result3= props.type;
+  const result2 = props.url;
+  const result3 = props.type;
 
   return (
     <>
-    <div
-      className='container-moviedetail'
-      
-    >
-      <div className="blurBackground" style={
-        {
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${result.backdrop_path})`
-        }
-      }>
-
-      </div>
-      <div className='section1-md'>
-        <h1> {result.title|| result.name ||"Unknown"} </h1>
-        <h2> {result3 === "movie" ?  result.release_date :  result.first_air_date || "Unknown"}</h2>
-        <div className='rating-part'>
-          <span>{`⭐${ numeral(result.vote_average).format('0,0.0')}`}</span>
-          <p>
-          {result.overview}
-          </p>
-          <button onClick={()=>window.open( result2, "_blank")   
-          } className={result2 ? "activebtnmovie" : "hiddenbtnmovie"}>Watch Trailer</button>
+      <div className='container-moviedetail'>
+        <div
+          className='blurBackground'
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original${result.backdrop_path})`,
+          }}
+        ></div>
+        <div className='section1-md'>
+          <h1> {result.title || result.name || "Unknown"} </h1>
+          <h2>
+            {" "}
+            {(result3 === "movie"
+              ? result.release_date
+              : result.first_air_date) || "Unknown"}
+          </h2>
+          <div className='rating-part'>
+            <span>{`⭐${numeral(result.vote_average).format("0,0.0")}`}</span>
+            <p>{result.overview}</p>
+            <button
+              onClick={() => window.open(result2, "_blank")}
+              className={result2 ? "activebtnmovie" : "hiddenbtnmovie"}
+            >
+              Watch Trailer
+            </button>
+          </div>
+        </div>
+        <div
+          className='trailer_section'
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original${result.backdrop_path})`,
+          }}
+        >
+          {result2 ? (
+            <a
+              href={result2}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='trailer-link2'
+            >
+              <PlayCircleIcon sx={{ fontSize: 80 }} />
+            </a>
+          ) : (
+            <p>No Trailer Available</p>
+          )}
         </div>
       </div>
-      <div
-        className='trailer_section'
-        style={
-          {
-              backgroundImage: `url(https://image.tmdb.org/t/p/original${result.backdrop_path})`,
-          }
-        }
-      >
-        {result2 ? (
-                    <a
-                      href={result2}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="trailer-link2"
-                    >
-        <PlayCircleIcon sx={{ fontSize: 80 }} />
-        </a>):(<p>No Trailer Available</p>)}
-     </div>
-    </div>
     </>
   );
-  
 }
+BackgrondDetailsMovie.propTypes = {
+  data: PropTypes.shape({
+    backdrop_path: PropTypes.string,
+    title: PropTypes.string,
+    name: PropTypes.string,
+    release_date: PropTypes.string,
+    first_air_date: PropTypes.string,
+    vote_average: PropTypes.number,
+    overview: PropTypes.string,
+  }).isRequired,
+
+  url: PropTypes.string,
+
+  type: PropTypes.string,
+};
