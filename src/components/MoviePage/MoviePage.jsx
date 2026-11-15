@@ -125,7 +125,7 @@ export function MoviePage() {
         );
         setMovies(movies.results);
         setTotalPages(movies.total_pages);
-      } catch {
+      } catch (err){
         if (err.name !== "AbortError") {
           setError(true);
         }
